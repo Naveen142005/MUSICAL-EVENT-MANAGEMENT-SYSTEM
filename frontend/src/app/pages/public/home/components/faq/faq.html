@@ -1,0 +1,105 @@
+<section
+    class="mx-auto px-6 py-20 m-12 bg-white"
+    style="border: 0.5px solid rgba(255, 0, 255, 0.21); border-radius: 5rem; width: 80vw"
+    id="FAQ"
+>
+    <!-- Clean Header -->
+    <div class="text-center mb-16">
+        <p class="text-purple-600 font-semibold text-sm uppercase tracking-wider mb-4">
+            {{faqList?.subheading || "Do You have any Questions?"}}
+        </p>
+        <h2
+            class="text-4xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent mb-6 leading-tight"
+        >
+            {{faqList?.heading || "Frequently Asked Questions"}}
+        </h2>
+        <div class="w-20 h-px bg-gradient-to-r from-purple-600 to-purple-400 mx-auto"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-16">
+        <!-- Left Column -->
+        <!-- Left column -->
+        <div class="space-y-0">
+            @for (faq of faqList?.faqs; track $index; let i = $index) { @if (i % 2 === 0) {
+            <div
+                class="border-b border-gray-200 py-6 transition-all duration-300 hover:border-purple-300"
+            >
+                <button
+                    class="faq-toggle flex justify-between items-center w-full text-left group"
+                    (click)="toggle(i)"
+                >
+                    <span 
+                        class="font-semibold text-lg text-gray-900 group-hover:text-purple-600 transition-colors duration-300 pr-4"
+                    >
+                        {{ faq.question }}
+                    </span>
+
+                    <span
+                        class="icon text-2xl transition-all duration-300 font-light flex-shrink-0"
+                        [ngClass]="{
+                            'text-purple-600 rotate-180': isOpen(i),
+                            'text-gray-400': !isOpen(i)
+                        }"
+                    >
+                        {{ isOpen(i) ? '−' : '+' }}
+                    </span>
+                </button>
+
+                <div
+                    class="faq-content overflow-hidden transition-all duration-500 ease-in-out"
+                    [style.maxHeight]="isOpen(i) ? '500px' : '0px'"
+                >
+                    <div class="pt-4 text-gray-700 leading-relaxed">
+                        <p>{{ faq.answer }}</p>
+                    </div>
+                </div>
+            </div>
+            } }
+        </div>
+
+        <!-- Right column: same idea, i % 2 === 1 -->
+        <div class="space-y-0">
+            @for (faq of faqList?.faqs; track $index; let i = $index) { @if (i % 2 === 1) {
+            <div
+                class="border-b border-gray-200 py-6 transition-all duration-300 hover:border-purple-300"
+            >
+                <button
+                    class="faq-toggle flex justify-between items-center w-full text-left group"
+                    (click)="toggle(i)"
+                >
+                    <span 
+                        class="font-semibold text-lg text-gray-900 group-hover:text-purple-600 transition-colors duration-300 pr-4"
+                    >
+                        {{ faq.question }}
+                    </span>
+
+                    <span
+                        class="icon text-2xl transition-all duration-300 font-light flex-shrink-0"
+                        [ngClass]="{
+                            'text-purple-600 rotate-180': isOpen(i),
+                            'text-gray-400': !isOpen(i)
+                        }"
+                    >
+                        {{ isOpen(i) ? '−' : '+' }}
+                    </span>
+                </button>
+
+                <div
+                    class="faq-content overflow-hidden transition-all duration-500 ease-in-out"
+                    [style.maxHeight]="isOpen(i) ? '500px' : '0px'"
+                >
+                    <div class="pt-4 text-gray-700 leading-relaxed">
+                        <p>{{ faq.answer }}</p>
+                    </div>
+                </div>
+            </div>
+            } }
+        </div>
+
+        <!-- Right Column -->
+    </div>
+
+    <!-- Popup Support Form -->
+
+    <!-- Simple Contact CTA -->
+</section>

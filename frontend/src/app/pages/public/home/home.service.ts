@@ -4,6 +4,10 @@ import { environment } from '../../../../environments/environment';
 import { firstValueFrom } from 'rxjs';
 import { VenueCaroselSection, VenueSlide } from '../../../core/models/venue-carousel.interface';
 import { BandsSection } from '../../../core/models/band-cads.interface';
+import { Testimonial } from '../../../core/models/feedback.interface';
+import { FaqItem, FaqSection } from '../../../core/models/faq.interface';
+import { AboutUsSection } from '../../../core/models/aboutus.interface';
+import { FooterSection } from '../../../core/models/footer.interface';
 
 @Injectable({ providedIn: 'root' })
 export class HomeService {
@@ -17,6 +21,32 @@ export class HomeService {
     }
 
     getBandsSection(): Promise<BandsSection> {
-        return firstValueFrom(this.http.get<BandsSection>(`${this.base}/contents/bands`));
+        return firstValueFrom(
+            this.http.get<BandsSection>(`${this.base}/contents/bands`)
+        );
+    }
+
+    getTestimonials() {
+        return firstValueFrom(
+            this.http.get<Testimonial[]>(`${this.base}/feedback/testimonials`)
+        );
+    }
+
+    getFAQ(){
+        return firstValueFrom(
+            this.http.get<FaqSection>(`${this.base}/contents/faq`)
+        )
+    }
+
+    getAboutUs(){
+        return firstValueFrom(
+            this.http.get<AboutUsSection>(`${this.base}/contents/about-us`)
+        )
+    }
+
+    getFooter() {
+        return firstValueFrom (
+            this.http.get<FooterSection>(`${this.base}/contents/footer`)
+        )
     }
 }

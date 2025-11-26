@@ -8,10 +8,18 @@ import { CommonModule, JsonPipe } from '@angular/common';
 import { VenueCarousel } from './components/venue-carousel/venue-carousel';
 import { BandCards } from "./components/band-cards/band-cards";
 import { BandsSection } from '../../../core/models/band-cads.interface';
+import { Testimonial } from '../../../core/models/feedback.interface';
+import { Testimonials } from "./components/testimonials/testimonials";
+import { FaqItem, FaqSection } from '../../../core/models/faq.interface';
+import { FAQ } from "./components/faq/faq";
+import { AboutUsSection } from '../../../core/models/aboutus.interface';
+import { AboutUs } from "./components/about-us/about-us";
+import { FooterSection } from '../../../core/models/footer.interface';
+import { Footer } from "./components/footer/footer";
 
 @Component({
     selector: 'app-home',
-    imports: [HeroSection, QuickStats, JsonPipe, CommonModule, VenueCarousel, BandCards],
+    imports: [HeroSection, QuickStats, JsonPipe, CommonModule, VenueCarousel, BandCards, Testimonials, FAQ, AboutUs, Footer],
     standalone: true,
     templateUrl: './home.html',
     styleUrls: ['./home.css'],
@@ -84,9 +92,13 @@ export class Home implements AfterViewInit {
 
 
     homeService = inject(HomeService);
-
+    baseAPI = environment.apiBase + '/'
     venueSlides: VenueSlide[] = [];
     bandsCards: BandsSection | null = null
+    testimonials: Testimonial[] = [];
+    faq: FaqSection | null = null;
+    aboutus: AboutUsSection | null = null
+    footer: FooterSection    | null = null
 
     async ngOnInit() {
 
@@ -94,18 +106,35 @@ export class Home implements AfterViewInit {
         this.venueSlides = this.venueSlides.map((slide) => ({
             ...slide,
             image_path: slide.image_path
-                ? 'http://127.0.0.1:8000/uploads/' + slide.image_path.split('uploads/')[1]
+                ? this.baseAPI + slide.image_path
                 : '',
         }));
 
 
         this.bandsCards = await this.homeService.getBandsSection();
         this.bandsCards.bands.map((card) => {
-            if (card.image_url) card.image_url = 'http://127.0.0.1:8000/' + card.image_path
+            if (card.image_url) card.image_url = this.baseAPI  + card.image_path
         })
+
+
+        this.testimonials = await this.homeService.getTestimonials();
+
+        this.faq = await this.homeService.getFAQ();
+
+        this.aboutus = await this.homeService.getAboutUs()
+        this.aboutus.gallery_images = this.aboutus.gallery_images.map((image) => image = this.baseAPI  + image)      
+        
+        this.footer = await this.homeService.getFooter()
+        this.footer.background_image = this.baseAPI  +this.footer.background_image
 
         console.log(this.venueSlides);
         console.log(this.bandsCards);
+        console.log(this.testimonials);
+        console.log(this.faq);
+        console.log(this.aboutus);
+        console.log(this.footer);
+        
+        
         
         
     }

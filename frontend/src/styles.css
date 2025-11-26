@@ -31,15 +31,13 @@ html {
    
 }
 
-/* .parallax-footer {
-    background-image: url('./ASSETS/footer.jpg');
+.parallax-footer {
     background-position: center;
     background-size: cover;
     width: 100vw;
-
     background-attachment: fixed;
     background-color: aqua;
-} */
+}
 #sz > * {
     font-size: 12px !important;
 }
