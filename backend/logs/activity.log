@@ -1,0 +1,391 @@
+2025-11-24 23:38:44,294 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:38:44,295 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:38:44,295 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:38:44,295 - INFO - Added job "start_scheduler.<locals>.run_payment_check" to job store "default"
+2025-11-24 23:38:44,295 - INFO - Added job "start_scheduler.<locals>.run_update" to job store "default"
+2025-11-24 23:38:44,295 - INFO - Added job "start_scheduler.<locals>.run_escrow_update" to job store "default"
+2025-11-24 23:38:44,296 - INFO - Scheduler started
+2025-11-24 23:38:50,451 - INFO - GET / | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-24 23:38:50,547 - INFO - GET /favicon.ico | IP: 127.0.0.1 | Status: 401 | Time: 0.01s
+2025-11-24 23:38:56,267 - INFO - GET /docs/ | IP: 127.0.0.1 | Status: 307 | Time: 0.00s
+2025-11-24 23:38:56,303 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.03s
+2025-11-24 23:38:56,417 - INFO - GET /_fastapi_static/swagger-ui-bundle.js | IP: 127.0.0.1 | Status: 304 | Time: 0.08s
+2025-11-24 23:38:56,417 - INFO - GET /_fastapi_static/swagger-ui.css | IP: 127.0.0.1 | Status: 304 | Time: 0.08s
+2025-11-24 23:38:56,789 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.26s
+2025-11-24 23:39:17,844 - INFO - GET /contents/hero | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-24 23:39:52,573 - INFO - Scheduler has been shut down
+2025-11-24 23:39:55,553 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:39:55,554 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:39:55,554 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:39:55,554 - INFO - Added job "start_scheduler.<locals>.run_payment_check" to job store "default"
+2025-11-24 23:39:55,554 - INFO - Added job "start_scheduler.<locals>.run_update" to job store "default"
+2025-11-24 23:39:55,554 - INFO - Added job "start_scheduler.<locals>.run_escrow_update" to job store "default"
+2025-11-24 23:39:55,556 - INFO - Scheduler started
+2025-11-24 23:40:01,548 - INFO - Scheduler has been shut down
+2025-11-24 23:40:04,583 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:40:04,584 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:40:04,584 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:40:04,584 - INFO - Added job "start_scheduler.<locals>.run_payment_check" to job store "default"
+2025-11-24 23:40:04,584 - INFO - Added job "start_scheduler.<locals>.run_update" to job store "default"
+2025-11-24 23:40:04,586 - INFO - Added job "start_scheduler.<locals>.run_escrow_update" to job store "default"
+2025-11-24 23:40:04,586 - INFO - Scheduler started
+2025-11-24 23:40:09,039 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-24 23:40:09,406 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.22s
+2025-11-24 23:40:18,799 - INFO - GET /contents/hero | IP: 127.0.0.1 | Status: 200 | Time: 0.06s
+2025-11-24 23:40:49,466 - INFO - Scheduler has been shut down
+2025-11-24 23:40:52,780 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:40:52,780 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:40:52,781 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-24 23:40:52,781 - INFO - Added job "start_scheduler.<locals>.run_payment_check" to job store "default"
+2025-11-24 23:40:52,782 - INFO - Added job "start_scheduler.<locals>.run_update" to job store "default"
+2025-11-24 23:40:52,782 - INFO - Added job "start_scheduler.<locals>.run_escrow_update" to job store "default"
+2025-11-24 23:40:52,782 - INFO - Scheduler started
+2025-11-24 23:40:52,796 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-24 23:40:53,136 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.23s
+2025-11-24 23:40:57,421 - INFO - POST /contents/hero/initialize | IP: 127.0.0.1 | Status: 201 | Time: 0.02s
+2025-11-24 23:41:26,842 - INFO - POST /contents/hero/initialize | IP: 127.0.0.1 | Status: 201 | Time: 0.00s
+2025-11-24 23:41:27,758 - INFO - POST /contents/hero/initialize | IP: 127.0.0.1 | Status: 201 | Time: 0.00s
+2025-11-24 23:41:45,325 - INFO - GET /contents/hero | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-25 00:57:07,523 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.07s
+2025-11-25 00:57:07,642 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-25 13:43:38,890 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-25 13:43:38,890 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-25 13:43:38,891 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-25 13:43:38,891 - INFO - Added job "start_scheduler.<locals>.run_payment_check" to job store "default"
+2025-11-25 13:43:38,891 - INFO - Added job "start_scheduler.<locals>.run_update" to job store "default"
+2025-11-25 13:43:38,891 - INFO - Added job "start_scheduler.<locals>.run_escrow_update" to job store "default"
+2025-11-25 13:43:38,892 - INFO - Scheduler started
+2025-11-25 13:44:39,840 - INFO - GET / | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-25 13:44:39,908 - INFO - GET /favicon.ico | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-25 13:44:47,362 - INFO - GET /docs/ | IP: 127.0.0.1 | Status: 307 | Time: 0.00s
+2025-11-25 13:44:47,422 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.05s
+2025-11-25 13:44:47,744 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.25s
+2025-11-25 13:45:01,208 - INFO - GET /contents/hero | IP: 127.0.0.1 | Status: 200 | Time: 0.10s
+2025-11-25 13:45:18,241 - INFO - POST /contents/hero/initialize | IP: 127.0.0.1 | Status: 201 | Time: 0.00s
+2025-11-25 19:12:03,691 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-25 19:12:03,692 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-25 19:12:03,692 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-25 19:12:03,693 - INFO - Added job "start_scheduler.<locals>.run_payment_check" to job store "default"
+2025-11-25 19:12:03,693 - INFO - Added job "start_scheduler.<locals>.run_update" to job store "default"
+2025-11-25 19:12:03,694 - INFO - Added job "start_scheduler.<locals>.run_escrow_update" to job store "default"
+2025-11-25 19:12:03,694 - INFO - Scheduler started
+2025-11-25 19:12:09,617 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.06s
+2025-11-25 19:12:10,039 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.26s
+2025-11-25 19:12:12,677 - INFO - GET /doc | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-25 19:12:12,726 - INFO - GET /favicon.ico | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-25 19:12:15,058 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-25 19:12:15,153 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-25 19:12:29,135 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.05s
+2025-11-26 11:54:51,227 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 11:54:51,229 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 11:54:51,229 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 11:54:51,229 - INFO - Added job "start_scheduler.<locals>.run_payment_check" to job store "default"
+2025-11-26 11:54:51,230 - INFO - Added job "start_scheduler.<locals>.run_update" to job store "default"
+2025-11-26 11:54:51,230 - INFO - Added job "start_scheduler.<locals>.run_escrow_update" to job store "default"
+2025-11-26 11:54:51,230 - INFO - Scheduler started
+2025-11-26 11:54:52,254 - INFO - GET / | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-26 11:54:52,314 - INFO - GET /favicon.ico | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-26 11:54:54,163 - INFO - GET /docs/ | IP: 127.0.0.1 | Status: 307 | Time: 0.00s
+2025-11-26 11:54:54,217 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.05s
+2025-11-26 11:54:54,507 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.21s
+2025-11-26 12:01:00,007 - INFO - Running job "start_scheduler.<locals>.run_update (trigger: cron[hour='6,12,18,23', minute='1'], next run at: 2025-11-26 12:01:00 IST)" (scheduled at 2025-11-26 12:01:00+05:30)
+2025-11-26 12:01:00,188 - INFO - Job "start_scheduler.<locals>.run_update (trigger: cron[hour='6,12,18,23', minute='1'], next run at: 2025-11-26 18:01:00 IST)" executed successfully
+2025-11-26 12:10:27,970 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.05s
+2025-11-26 12:10:31,371 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 12:12:00,601 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 12:12:19,409 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 12:12:24,298 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 12:13:10,446 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 12:14:57,776 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 12:14:58,450 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 12:15:07,408 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:05:40,892 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:05:42,243 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:06:04,755 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:06:12,993 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:06:13,824 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:06:14,329 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:06:15,107 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:10:38,742 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:13:28,727 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:13:45,826 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:14:25,461 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:14:42,374 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:19:46,454 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:21:40,247 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:22:11,317 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:23:32,188 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:24:59,933 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:25:07,645 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:28:35,455 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:28:35,930 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:28:48,387 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:37:08,287 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:40:07,635 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:40:30,337 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:40:42,915 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:41:21,161 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:42:32,985 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:42:46,161 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:44:32,856 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:44:44,390 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:45:40,114 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:46:48,545 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:47:09,150 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:48:04,535 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:48:57,983 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:49:02,247 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:49:15,968 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:50:07,564 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:50:31,643 - INFO - POST /users/login | IP: 127.0.0.1 | Status: 400 | Time: 0.31s
+2025-11-26 13:50:36,491 - INFO - POST /users/login | IP: 127.0.0.1 | Status: 400 | Time: 0.09s
+2025-11-26 13:50:39,578 - INFO - POST /users/login | IP: 127.0.0.1 | Status: 200 | Time: 0.14s
+2025-11-26 13:51:01,304 - INFO - POST /contents/venue-carousel/slide | IP: 127.0.0.1 | Status: 422 | Time: 0.06s
+2025-11-26 13:51:08,680 - INFO - POST /contents/venue-carousel/slide | IP: 127.0.0.1 | Status: 201 | Time: 0.04s
+2025-11-26 13:51:18,828 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:58:19,493 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:58:20,385 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:58:42,849 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:59:19,322 - INFO - GET /content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.01s
+2025-11-26 13:59:22,217 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:59:22,398 - INFO - GET /content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 13:59:41,392 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:59:41,542 - INFO - GET /: | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-26 13:59:42,230 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:59:42,275 - INFO - GET /content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 13:59:44,951 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 13:59:45,034 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 13:59:45,775 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 13:59:45,863 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:00:14,087 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:00:36,134 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:00:36,236 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:00:50,336 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:00:50,446 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:00:51,302 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:00:51,430 - INFO - GET /favicon.ico | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-26 14:01:06,096 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:01:06,719 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:01:06,834 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:01:11,843 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:01:11,856 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:01:12,008 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:01:19,455 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:01:19,465 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:01:23,836 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:01:23,845 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:01:42,220 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:01:42,224 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:01:42,366 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:02:45,357 - INFO - Scheduler has been shut down
+2025-11-26 14:03:09,070 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:03:09,070 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:03:09,070 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:03:09,070 - INFO - Added job "start_scheduler.<locals>.run_payment_check" to job store "default"
+2025-11-26 14:03:09,072 - INFO - Added job "start_scheduler.<locals>.run_update" to job store "default"
+2025-11-26 14:03:09,072 - INFO - Added job "start_scheduler.<locals>.run_escrow_update" to job store "default"
+2025-11-26 14:03:09,072 - INFO - Scheduler started
+2025-11-26 14:03:12,150 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:03:12,151 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:03:12,151 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:03:12,152 - INFO - Added job "start_scheduler.<locals>.run_payment_check" to job store "default"
+2025-11-26 14:03:12,152 - INFO - Added job "start_scheduler.<locals>.run_update" to job store "default"
+2025-11-26 14:03:12,152 - INFO - Added job "start_scheduler.<locals>.run_escrow_update" to job store "default"
+2025-11-26 14:03:12,152 - INFO - Scheduler started
+2025-11-26 14:03:20,584 - INFO - GET /uploads/content/3d4af930-05e6-4b2c-8bfd-2fc61215311f.png | IP: 127.0.0.1 | Status: 200 | Time: 0.28s
+2025-11-26 14:03:20,584 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.29s
+2025-11-26 14:03:57,841 - INFO - DELETE /contents/venue-carousel/slide/0 | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:04:02,082 - INFO - DELETE /contents/venue-carousel/slide/1 | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:04:06,774 - INFO - DELETE /contents/venue-carousel/slide/2 | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:04:12,796 - INFO - DELETE /contents/venue-carousel/slide/3 | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:04:18,725 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:04:28,623 - INFO - DELETE /contents/venue-carousel/slide/0 | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:04:31,095 - INFO - DELETE /contents/venue-carousel/slide/0 | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:04:33,087 - INFO - DELETE /contents/venue-carousel/slide/0 | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:04:51,488 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:06:07,385 - INFO - POST /contents/venue-carousel/slide | IP: 127.0.0.1 | Status: 201 | Time: 0.16s
+2025-11-26 14:06:36,678 - INFO - POST /contents/venue-carousel/slide | IP: 127.0.0.1 | Status: 201 | Time: 0.01s
+2025-11-26 14:07:02,155 - INFO - POST /contents/venue-carousel/slide | IP: 127.0.0.1 | Status: 201 | Time: 0.03s
+2025-11-26 14:07:06,616 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:07:06,773 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:07:06,777 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:07:06,793 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 200 | Time: 0.02s
+2025-11-26 14:07:27,503 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:07:27,627 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:07:27,630 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:07:27,632 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:07:54,793 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:07:54,885 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:07:54,889 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:07:54,894 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.02s
+2025-11-26 14:08:19,981 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:08:20,039 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:08:20,044 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:08:20,045 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:09:11,493 - INFO - POST /contents/venue-carousel/slide | IP: 127.0.0.1 | Status: 201 | Time: 0.06s
+2025-11-26 14:09:57,807 - INFO - POST /contents/venue-carousel/slide | IP: 127.0.0.1 | Status: 201 | Time: 0.03s
+2025-11-26 14:10:12,937 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:10:12,977 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:10:12,980 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:10:12,986 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:10:12,988 - INFO - GET /uploads/content/63673f87-1355-46e7-a8d8-c400d63fd7f0.jpg | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:10:12,989 - INFO - GET /uploads/content/72b9e8b5-a632-4282-b404-dc975aab21ee.jpg | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:16:29,319 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.14s
+2025-11-26 14:16:30,497 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.93s
+2025-11-26 14:16:40,287 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-26 14:16:54,713 - INFO - POST /users/login | IP: 127.0.0.1 | Status: 200 | Time: 0.19s
+2025-11-26 14:17:02,220 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:19:06,915 - INFO - PUT /contents/bands/band/0 | IP: 127.0.0.1 | Status: 422 | Time: 0.11s
+2025-11-26 14:19:15,906 - INFO - PUT /contents/bands/band/0 | IP: 127.0.0.1 | Status: 200 | Time: 0.12s
+2025-11-26 14:19:50,108 - INFO - DELETE /contents/bands/band/0 | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:19:51,329 - INFO - DELETE /contents/bands/band/0 | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:19:51,855 - INFO - DELETE /contents/bands/band/0 | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:19:52,401 - INFO - DELETE /contents/bands/band/0 | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:19:52,895 - INFO - DELETE /contents/bands/band/0 | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:23:20,703 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:23:21,132 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:23:21,134 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:23:21,137 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:23:21,165 - INFO - GET /uploads/content/63673f87-1355-46e7-a8d8-c400d63fd7f0.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:23:21,176 - INFO - GET /uploads/content/72b9e8b5-a632-4282-b404-dc975aab21ee.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:23:31,055 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:24:15,235 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:25:38,509 - INFO - Scheduler has been shut down
+2025-11-26 14:25:50,763 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:25:50,764 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:25:50,765 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:25:50,767 - INFO - Added job "start_scheduler.<locals>.run_payment_check" to job store "default"
+2025-11-26 14:25:50,767 - INFO - Added job "start_scheduler.<locals>.run_update" to job store "default"
+2025-11-26 14:25:50,767 - INFO - Added job "start_scheduler.<locals>.run_escrow_update" to job store "default"
+2025-11-26 14:25:50,768 - INFO - Scheduler started
+2025-11-26 14:27:56,846 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.02s
+2025-11-26 14:27:57,185 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.11s
+2025-11-26 14:27:57,190 - INFO - GET /uploads/content/63673f87-1355-46e7-a8d8-c400d63fd7f0.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:27:57,190 - INFO - GET /uploads/content/72b9e8b5-a632-4282-b404-dc975aab21ee.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:27:57,233 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:27:57,233 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:29:01,839 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:29:04,353 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:30:32,830 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:30:32,881 - INFO - GET /contents/bands_section | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:30:33,035 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:30:33,036 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:30:33,045 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:30:33,045 - INFO - GET /uploads/content/63673f87-1355-46e7-a8d8-c400d63fd7f0.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:30:33,047 - INFO - GET /uploads/content/72b9e8b5-a632-4282-b404-dc975aab21ee.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:33:21,017 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:33:21,166 - INFO - GET /contents/bands_section | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:33:21,235 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:33:21,238 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:33:21,249 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:33:21,252 - INFO - GET /uploads/content/63673f87-1355-46e7-a8d8-c400d63fd7f0.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:33:21,255 - INFO - GET /uploads/content/72b9e8b5-a632-4282-b404-dc975aab21ee.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:33:32,785 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:33:32,878 - INFO - GET /contents/bands_section | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:33:36,206 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:33:36,237 - INFO - GET /contents/bands_section | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:33:49,086 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:33:49,107 - INFO - GET /contents/bands_section | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:33:52,947 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:33:52,969 - INFO - GET /contents/bands_section | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:34:10,460 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:34:10,491 - INFO - GET /contents/bands_section | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:34:20,664 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:34:20,689 - INFO - GET /contents/bands_section | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:34:28,516 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:34:28,543 - INFO - GET /contents/bands_section | IP: 127.0.0.1 | Status: 404 | Time: 0.00s
+2025-11-26 14:35:06,318 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:35:06,429 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-26 14:35:11,380 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:35:11,489 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-26 14:35:43,604 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:35:43,958 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.28s
+2025-11-26 14:35:59,735 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-26 14:36:27,464 - INFO - Scheduler has been shut down
+2025-11-26 14:36:31,554 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:36:31,554 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:36:31,554 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-26 14:36:31,555 - INFO - Added job "start_scheduler.<locals>.run_payment_check" to job store "default"
+2025-11-26 14:36:31,555 - INFO - Added job "start_scheduler.<locals>.run_update" to job store "default"
+2025-11-26 14:36:31,555 - INFO - Added job "start_scheduler.<locals>.run_escrow_update" to job store "default"
+2025-11-26 14:36:31,555 - INFO - Scheduler started
+2025-11-26 14:36:33,190 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:36:33,603 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.28s
+2025-11-26 14:36:44,882 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.05s
+2025-11-26 14:36:44,961 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:36:45,177 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.12s
+2025-11-26 14:36:45,177 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.12s
+2025-11-26 14:36:45,178 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.12s
+2025-11-26 14:36:45,178 - INFO - GET /uploads/content/72b9e8b5-a632-4282-b404-dc975aab21ee.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.12s
+2025-11-26 14:36:45,179 - INFO - GET /uploads/content/63673f87-1355-46e7-a8d8-c400d63fd7f0.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.12s
+2025-11-26 14:36:59,690 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:37:29,373 - INFO - POST /users/login | IP: 127.0.0.1 | Status: 200 | Time: 0.24s
+2025-11-26 14:37:37,151 - INFO - POST /contents/bands/initialize | IP: 127.0.0.1 | Status: 201 | Time: 0.01s
+2025-11-26 14:38:42,262 - INFO - POST /contents/bands/band | IP: 127.0.0.1 | Status: 201 | Time: 0.02s
+2025-11-26 14:39:04,150 - INFO - POST /contents/bands/band | IP: 127.0.0.1 | Status: 201 | Time: 0.02s
+2025-11-26 14:39:31,028 - INFO - POST /contents/bands/band | IP: 127.0.0.1 | Status: 201 | Time: 0.03s
+2025-11-26 14:39:33,702 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:39:33,843 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:39:33,860 - INFO - GET /uploads/content/63673f87-1355-46e7-a8d8-c400d63fd7f0.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:39:33,865 - INFO - GET /uploads/content/72b9e8b5-a632-4282-b404-dc975aab21ee.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:40:06,371 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:40:06,493 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:40:06,562 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:40:06,575 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:40:06,580 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:40:56,027 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:40:56,119 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:42:48,255 - INFO - GET /docs | IP: 127.0.0.1 | Status: 200 | Time: 0.05s
+2025-11-26 14:42:48,396 - INFO - GET /openapi.json | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:43:29,806 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:43:29,851 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:43:29,862 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:43:29,866 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:43:29,868 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:43:29,870 - INFO - GET /uploads/content/63673f87-1355-46e7-a8d8-c400d63fd7f0.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:43:29,871 - INFO - GET /uploads/content/72b9e8b5-a632-4282-b404-dc975aab21ee.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.01s
+2025-11-26 14:44:11,906 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:44:11,953 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:45:21,861 - INFO - PUT /contents/bands/header | IP: 127.0.0.1 | Status: 401 | Time: 0.00s
+2025-11-26 14:45:24,957 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:45:25,067 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:45:39,078 - INFO - POST /users/login | IP: 127.0.0.1 | Status: 200 | Time: 0.08s
+2025-11-26 14:45:44,573 - INFO - PUT /contents/bands/header | IP: 127.0.0.1 | Status: 422 | Time: 0.02s
+2025-11-26 14:45:51,705 - INFO - PUT /contents/bands/header | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:45:54,602 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:45:54,736 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:46:14,117 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:46:14,227 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:46:20,411 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:46:20,499 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:48:13,431 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:48:13,559 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:48:13,616 - INFO - GET /uploads/content/3072fee0-0b7e-4a66-9887-eb3e85ba8c79.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:48:13,621 - INFO - GET /uploads/content/da1437f3-f217-49ad-8dc8-08ccae0b3324.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:48:13,625 - INFO - GET /uploads/content/c4f73aac-ce05-4751-a440-0e7b4571b26f.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:48:13,641 - INFO - GET /uploads/content/63673f87-1355-46e7-a8d8-c400d63fd7f0.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:48:13,642 - INFO - GET /uploads/content/72b9e8b5-a632-4282-b404-dc975aab21ee.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:49:06,842 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:49:07,010 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:49:28,051 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:49:28,175 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:49:28,210 - INFO - GET /uploads/content/db835bfe-f8ee-4943-99c3-d0576298644e.jpg | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:49:28,220 - INFO - GET /uploads/content/aa4fcbe8-061c-4830-a1bc-d6f59db9690c.jpg | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:49:28,268 - INFO - GET /uploads/content/97e245e5-df28-4ea3-a3e5-3f9d8bf06743.jpg | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:49:55,499 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:49:55,590 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:50:03,354 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:50:03,444 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:50:13,337 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:50:13,426 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:50:38,390 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:50:38,480 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:50:38,694 - INFO - GET /uploads/content/db835bfe-f8ee-4943-99c3-d0576298644e.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:50:38,700 - INFO - GET /uploads/content/aa4fcbe8-061c-4830-a1bc-d6f59db9690c.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:50:38,704 - INFO - GET /uploads/content/97e245e5-df28-4ea3-a3e5-3f9d8bf06743.jpg | IP: 127.0.0.1 | Status: 304 | Time: 0.00s
+2025-11-26 14:50:59,380 - INFO - PUT /contents/bands/header | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:51:04,095 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:51:04,184 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:51:11,838 - INFO - PUT /contents/bands/header | IP: 127.0.0.1 | Status: 200 | Time: 0.01s
+2025-11-26 14:51:15,127 - INFO - GET /contents/venue-carousel | IP: 127.0.0.1 | Status: 200 | Time: 0.00s
+2025-11-26 14:51:15,200 - INFO - GET /contents/bands | IP: 127.0.0.1 | Status: 200 | Time: 0.00s

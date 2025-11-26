@@ -1,0 +1,43 @@
+<div class="w-vw h-dvh flex justify-center items-center relative">
+  <section class="w-[95vw] h-[95vh] sm:w-[90vw] sm:h-[90vh] md:w-[85vw] md:h-[85vh] lg:w-[90vw] lg:h-[90vh]">
+    <div #carousel class="carousel relative">
+
+      <div #list class="list">
+        @for (slide of venueSlides; track $index) {
+            
+          <div class="item" [style.background-image]="'url(' + slide.image_path + ')'"  style="
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            " >
+            <div class="content">
+              <div class="title">{{ slide.title }}</div>
+              <div class="des">{{ slide.description }}</div>
+              <div class="btn">
+                <button style="display:none">See More</button>
+                <button (click)="'hi'">Explore More </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="arrows">
+        <button #prevBtn class="prev">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <button #nextBtn class="next">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+</div>
