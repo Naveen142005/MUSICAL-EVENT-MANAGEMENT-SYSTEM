@@ -32,3 +32,6 @@ backend/EMS/
 
 EMS/
 backend/.env/
+
+backend/token.json
+backend/credentials.json
