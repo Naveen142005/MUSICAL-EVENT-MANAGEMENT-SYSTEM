@@ -9,6 +9,7 @@ from app.core.dependencies import db
 from app.models.feedback import Feedback
 from app.utils.common import decode_ids  # make a decode_ids function
 from app.services.feedback import feedback_service
+from app.models.user import User
 
 
 router = APIRouter()
@@ -64,6 +65,32 @@ async def get_all_feedback(
     current_user: dict = Depends(role_requires("Admin"))
 ):
     return feedback_service.get_all_feedback(db=db, rating=rating, status=status)
+
+@router.get("/testimonials")
+async def get_testimonials(db: Session = Depends(db.get_db)):
+    result = (
+        db.query(
+            Feedback.id,
+            User.name.label("user_name"),
+            Feedback.feedback_summary,
+            Feedback.feedback_date
+        )
+        .join(User, User.id == Feedback.user_id)
+        .filter(Feedback.is_testimonial == True)
+        .filter(Feedback.id >= 24) # Have to change
+        .limit(10)
+        .all()
+    )
+
+    return [
+        {
+            "id": r.id,
+            "user_name": r.user_name,
+            "feedback_summary": r.feedback_summary,
+            "feedback_date": r.feedback_date,
+        }
+        for r in result
+    ]
 
 # ---------------------------
 # UPDATE feedback status to read

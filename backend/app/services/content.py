@@ -141,7 +141,8 @@ class ContentService:
                 if "slides" in carousel:
                     for slide in carousel["slides"]:
                         if "image_path" in slide and slide["image_path"]:
-                            image_path = get_image_url(slide["image_path"])
+                            image_path = slide["image_path"].replace("\\", "/")
+
                             slide["image_path"] = image_path
                         else:
                             image_path = None
@@ -752,10 +753,7 @@ class ContentService:
                 about_section["_id"] = str(about_section["_id"])
                 
                 # Convert gallery image paths to absolute URLs
-                if "gallery_images" in about_section:
-                    about_section["gallery_images"] = [
-                        get_image_url(img) for img in about_section["gallery_images"]
-                    ]
+                
                 
                 return about_section
             return None

@@ -244,7 +244,7 @@ async def initialize_bands_section(current_user: dict = Depends(role_requires("A
 # ==================== FAQ SECTION ROUTES ====================
 
 @router.get("/faq", response_model=FAQResponse, status_code=status.HTTP_200_OK)
-async def get_faq_section(current_user: dict = Depends(role_requires("Admin"))):
+async def get_faq_section():
     """Public endpoint to fetch FAQ section"""
     faq_section = await content_service.get_faq_section()
     
@@ -342,7 +342,7 @@ async def initialize_faq_section(current_user: dict = Depends(role_requires("Adm
 # ==================== ABOUT US SECTION ROUTES ====================
 
 @router.get("/about-us", response_model=AboutUsResponse, status_code=status.HTTP_200_OK)
-async def get_about_us_section(current_user: dict = Depends(role_requires("Admin"))):
+async def get_about_us_section():
     """Public endpoint to fetch About Us section"""
     about_section = await content_service.get_about_us_section()
     
@@ -452,7 +452,7 @@ async def initialize_about_us_section(current_user: dict = Depends(role_requires
 # ==================== FOOTER SECTION ROUTES ====================
 
 @router.get("/footer", response_model=FooterResponse, status_code=status.HTTP_200_OK)
-async def get_footer_section(current_user: dict = Depends(role_requires("Admin"))):
+async def get_footer_section():
     """Public endpoint to fetch footer section"""
     footer = await content_service.get_footer_section()
     
@@ -473,7 +473,8 @@ async def update_footer_header(
     current_user: dict = Depends(role_requires("Admin"))
 ):
     """Admin endpoint to update footer header and background image"""
-    extension = validate_image_ex(image)
+    if (image):
+        extension = validate_image_ex(image)
     
     result = await content_service.update_footer_header(logo_text, description, copyright_text, image=image)
     return {"message": "Footer header updated successfully", "data": result}

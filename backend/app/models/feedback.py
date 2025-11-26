@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy import CheckConstraint, Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import Boolean, CheckConstraint, Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database.connection import Base
 
@@ -15,3 +15,5 @@ class Feedback(Base):
     feedback_summary = Column(String, nullable=True)
     feedback_date = Column(DateTime, default=datetime.utcnow)
     status = Column(String, default="submitted")
+    is_testimonial  = Column(Boolean, default=False)
+ 
