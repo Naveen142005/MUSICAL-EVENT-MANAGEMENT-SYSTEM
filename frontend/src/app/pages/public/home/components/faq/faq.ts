@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, Renderer2 } from '@angular/core';
-import { FaqItem, FaqSection } from '../../../../../core/models/faq.interface';
+import { FaqItem, FaqSection } from '../../../../../core/interfaces/faq.interface';
 import { CommonModule } from '@angular/common';
 
 @Component({

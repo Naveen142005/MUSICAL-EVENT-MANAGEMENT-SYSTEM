@@ -2,12 +2,12 @@ import { inject, Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { firstValueFrom } from 'rxjs';
-import { VenueCaroselSection, VenueSlide } from '../../../core/models/venue-carousel.interface';
-import { BandsSection } from '../../../core/models/band-cads.interface';
-import { Testimonial } from '../../../core/models/feedback.interface';
-import { FaqItem, FaqSection } from '../../../core/models/faq.interface';
-import { AboutUsSection } from '../../../core/models/aboutus.interface';
-import { FooterSection } from '../../../core/models/footer.interface';
+import { VenueCaroselSection, VenueSlide } from '../../../core/interfaces/venue-carousel.interface';
+import { BandsSection } from '../../../core/interfaces/band-cads.interface';
+import { Testimonial } from '../../../core/interfaces/feedback.interface';
+import { FaqItem, FaqSection } from '../../../core/interfaces/faq.interface';
+import { AboutUsSection } from '../../../core/interfaces/aboutus.interface';
+import { FooterSection } from '../../../core/interfaces/footer.interface';
 
 @Injectable({ providedIn: 'root' })
 export class HomeService {

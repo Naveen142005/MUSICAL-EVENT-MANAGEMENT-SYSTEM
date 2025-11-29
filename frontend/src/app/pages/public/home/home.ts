@@ -3,23 +3,23 @@ import { HeroSection } from './components/hero-section/hero-section';
 import { environment } from '../../../../environments/environment';
 import { QuickStats } from './components/quick-stats/quick-stats';
 import { HomeService } from './home.service';
-import { VenueSlide } from '../../../core/models/venue-carousel.interface';
+import { VenueSlide } from '../../../core/interfaces/venue-carousel.interface';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { VenueCarousel } from './components/venue-carousel/venue-carousel';
 import { BandCards } from "./components/band-cards/band-cards";
-import { BandsSection } from '../../../core/models/band-cads.interface';
-import { Testimonial } from '../../../core/models/feedback.interface';
+import { BandsSection } from '../../../core/interfaces/band-cads.interface';
+import { Testimonial } from '../../../core/interfaces/feedback.interface';
 import { Testimonials } from "./components/testimonials/testimonials";
-import { FaqItem, FaqSection } from '../../../core/models/faq.interface';
+import { FaqItem, FaqSection } from '../../../core/interfaces/faq.interface';
 import { FAQ } from "./components/faq/faq";
-import { AboutUsSection } from '../../../core/models/aboutus.interface';
+import { AboutUsSection } from '../../../core/interfaces/aboutus.interface';
 import { AboutUs } from "./components/about-us/about-us";
-import { FooterSection } from '../../../core/models/footer.interface';
+import { FooterSection } from '../../../core/interfaces/footer.interface';
 import { Footer } from "./components/footer/footer";
 
 @Component({
     selector: 'app-home',
-    imports: [HeroSection, QuickStats, JsonPipe, CommonModule, VenueCarousel, BandCards, Testimonials, FAQ, AboutUs, Footer],
+    imports: [HeroSection, QuickStats, CommonModule, VenueCarousel, BandCards, Testimonials, FAQ, AboutUs, Footer],
     standalone: true,
     templateUrl: './home.html',
     styleUrls: ['./home.css'],

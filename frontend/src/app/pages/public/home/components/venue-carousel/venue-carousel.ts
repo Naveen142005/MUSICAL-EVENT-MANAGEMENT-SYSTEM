@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VenueSlide } from '../../../../../core/models/venue-carousel.interface';
+import { VenueSlide } from '../../../../../core/interfaces/venue-carousel.interface';
 
 
 @Component({

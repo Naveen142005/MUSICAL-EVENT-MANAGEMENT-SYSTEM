@@ -12,6 +12,7 @@ class VenueBase(BaseModel):
     location: str = Field(..., min_length=2, max_length=200)
     capacity: Optional[int] = Field(None, gt=0)
     price: Optional[float] = Field(None, gt=0)
+    type: str
     status: Optional[FacilityStatus] = FacilityStatus.AVAILABLE
 
 
@@ -20,6 +21,7 @@ class VenueUpdate(BaseModel):
     location: Optional[str] = Field(None, min_length=2, max_length=200)
     capacity: Optional[int] = Field(None, gt=0)
     price: Optional[float] = Field(None, gt=0)
+    type: str
     status: Optional[FacilityStatus] = None
 
 

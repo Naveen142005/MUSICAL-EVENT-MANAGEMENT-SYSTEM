@@ -51,6 +51,14 @@ application.add_middleware(
 )
 
 
+@application.middleware("http")
+async def log_requests(request: Request, call_next):
+    print(f"🌐 Request URL: {request.url}")
+    print(f"🔑 Authorization Header: {request.headers.get('authorization')}")
+    response = await call_next(request)
+    return response
+
+
 application.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 application.include_router(user.router, tags=["Users"], prefix="/users")

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BandsSection } from '../../../../../core/models/band-cads.interface';
+import { BandsSection } from '../../../../../core/interfaces/band-cads.interface';
 
 @Component({
   selector: 'app-band-cards',

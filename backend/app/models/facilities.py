@@ -16,10 +16,12 @@ class Venues(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
     location = Column(String, nullable=False)
+    type = Column(String)
     capacity = Column(Integer)
     price = Column(Float)
     status = Column(SqlEnum(FacilityStatus), default=FacilityStatus.AVAILABLE)
     image_path = Column(String(500), nullable=True)
+    
 
 
 # ========================

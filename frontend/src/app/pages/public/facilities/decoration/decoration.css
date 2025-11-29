@@ -1,0 +1,28 @@
+.card-elegant {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(147, 51, 234, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.gentle-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(147, 51, 234, 0.15), 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.filter-sidebar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(147, 51, 234, 0.1);
+}
+
+.input-focus:focus {
+    border-color: #9333ea;
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1);
+}
+
+@media (max-width: 768px) {
+    * {
+        cursor: auto !important;
+    }
+}

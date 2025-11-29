@@ -45,24 +45,54 @@ def decode_token(token: str):
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
         return payload
-    except JWTError:
+    except jwt.ExpiredSignatureError:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid or expired token",
+            detail="Token has expired",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+        
+    except jwt.JWTError as e:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f"Could not validate token: {str(e)}",
+            headers={"WWW-Authenticate": "Bearer"},
         )
 
-def get_current_user(token: str = Depends(oauth2_scheme), db:Session = Depends(db.get_db)):
-    payload = decode_token(token=token)
+
+
+def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(db.get_db)):
+   
+    try:
+        payload = decode_token(token=token)
+       
+    except Exception as e:
+
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Could not validate credentials",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
     
     user_data = db.query(User).filter(User.id == payload["id"]).first()
-    print("HELLLLLLLLLLLLO")
-    print(user_data.status)
+    
+    if not user_data:
+    
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="User not found",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    
+    print(f"User status: {user_data.status}")
     if not user_data.status:
-            raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN,
-                detail=f"{payload['id']} is deactiveted. So can not access any route"
-            )
-    return payload  
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail=f"{payload['id']} is deactivated."
+        )
+    
+    return payload
+
 
 def admin_required(current_user: dict = Depends(get_current_user)):
     if current_user.get("role") != "admin":

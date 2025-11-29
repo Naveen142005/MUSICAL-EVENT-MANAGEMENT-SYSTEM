@@ -57,7 +57,7 @@ class FacilityGettingService:
         if model_dict.get("member_count"):
             query = query.filter(Bands.member_count == model_dict["member_count"])
         
-        query.filter([])
+
 
         if model_dict.get("max_price"):
             query = query.filter(Bands.price <= model_dict["max_price"])

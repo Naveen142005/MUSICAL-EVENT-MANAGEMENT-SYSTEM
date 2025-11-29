@@ -1,0 +1,140 @@
+<div
+    id="modalOverlay"
+    class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 p-6 w-full"
+    style="z-index: 99999"
+>
+    <!-- Modal Container -->
+    <!-- Modal Container with proper height -->
+    <div
+        id="modalContainer"
+        class="card-elegant rounded-3xl max-w-lg w-full mx-auto transform transition-all duration-300 scale-95 no-scrollbar max-h-[90vh] overflow-y-auto"
+    >
+        <!-- Modal Header -->
+        <div class="gradient-primary p-8 text-white relative no-scrollbar">
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
+                        <svg
+                            class="w-7 h-7 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-display font-bold">Thigalzhi® Access</h2>
+                        <p class="text-white/80 text-sm font-body">Premium Concert Experience</p>
+                    </div>
+                </div>
+                <button
+                    id="closeModalBtn"
+                    (click)="closeModal()"
+                    class="w-10 h-10 bg-white/10 hover:bg-white rounded-full flex items-center justify-center transition-colors"
+                >
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex bg-white/10 backdrop-blur rounded-2xl p-1.5 gap-1">
+                <button
+                    id="loginTab"
+                    (click)="open_model('login')"
+                    [ngClass]="isLoginSelected ? 'bg-white bg-opacity-20' : 'block'"
+                    class="flex-1 py-3 px-4 rounded-xl text-sm font-body font-semibold transition-all duration-300 text-white hover:bg-white/10 flex items-center justify-center gap-2"
+                >
+                    <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        style="transform: rotate(180deg)"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                        ></path>
+                    </svg>
+                    Login
+                </button>
+                <button
+                    id="signupTab"
+                    (click)="open_model('signup')"
+                    [ngClass]="isSignUpSelected ? 'bg-white bg-opacity-20' : 'block'"
+                    class="flex-1 py-3 px-4 rounded-xl text-sm font-body font-semibold transition-all duration-300 text-white hover:bg-white/10 flex items-center justify-center gap-2"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                        ></path>
+                    </svg>
+                    Signup
+                </button>
+                <button
+                    style="display: none"
+                    id="forgotTab"
+                    class="flex-1 py-3 px-4 rounded-xl text-sm font-body font-semibold transition-all duration-300 text-white hover:bg-white/10 flex items-center justify-center gap-2"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+                        ></path>
+                    </svg>
+                    Reset
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="p-8">
+            <!-- Success/Error Message -->
+            @if(showMessageFlag) {
+            <div id="messageContainer" class="mb-6">
+                <p
+                    id="messageText"
+                    class="text-center font-body font-medium"
+                    [ngClass]="messageType"
+                >
+                    {{ message }}
+                </p>
+            </div>
+            }
+
+            <!-- Login Form -->
+            <!-- Login Form -->
+            @if (isLoginSelected) {
+            <app-login (showMessage)="handleMessage($event)" (isSelectedForgotPassword)="open_model($event)"></app-login>
+            }
+
+            <!-- Signup Form -->
+            @else if (isSignUpSelected) {
+            <app-signup class="w-full h-full" (showMessage)="handleMessage($event)" ></app-signup>
+            } 
+            @else {
+            <app-forget-password ></app-forget-password>
+            }
+        </div>
+    </div>
+</div>

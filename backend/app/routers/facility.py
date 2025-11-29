@@ -46,7 +46,7 @@ def get_all_venues(
     sort_by: str | None = Query(None, description="Sort by this column name (like price, name, or capacity)."),
     order: SortOrder = Query(SortOrder.asc, description="Sort order — 'asc' for ascending, 'desc' for descending."),
     db: Session = Depends(db.get_db),
-    current_user: dict = Depends(role_requires("Organizer", "Audience"))
+   
 ):
     """Organizer or Audience can Access"""
     model_dict = {
@@ -69,7 +69,7 @@ def get_all_bands(
     sort_by: str | None = Query(None, description="Sort by this column name (like price, name, or member_count)."),
     order: SortOrder = Query(SortOrder.asc, description="Sort order — 'asc' or 'desc'."),
     db: Session = Depends(db.get_db),
-    current_user: dict = Depends(role_requires("Organizer", "Audience"))
+   
 
 ):
     """Organizer or Audience can Access"""
@@ -92,7 +92,7 @@ def get_all_decorations(
     sort_by: str | None = Query(None, description="Sort by this column name (like price or name)."),
     order: SortOrder = Query(SortOrder.asc, description="Sort order — 'asc' or 'desc'."),
     db: Session = Depends(db.get_db),
-    current_user: dict = Depends(role_requires("Organizer", "Audience"))
+  
 
 ):
     """Organizer or Audience can Access"""

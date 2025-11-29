@@ -97,7 +97,7 @@ async def update_event_status():
                                 print(f" Failed to send audience feedback: {e}")
 
         db.commit()
-        print(f" [{now.strftime('%H:%M:%S')}] Event statuses updated successfully")
+        
 
     except Exception as e:
         db.rollback()
@@ -156,7 +156,6 @@ async def check_pending_payments():
                     print(f"URGENT payment reminder sent for event {event.id}")
 
         db.commit()
-        print(f" [{now.strftime('%H:%M:%S')}] Payment check completed")
 
     except Exception as e:
         db.rollback()
@@ -333,11 +332,10 @@ def start_scheduler():
         
     scheduler = BackgroundScheduler()
     
-    scheduler.add_job(run_payment_check, 'cron', hour=9, minute=0)
-    scheduler.add_job(run_update, 'cron', hour='6,12,18,23', minute=1)
-    scheduler.add_job(run_escrow_update, 'cron', hour=23, minute=0)
-    scheduler.start()
-    
-    print("Scheduler started.............................................")
+    # scheduler.add_job(run_payment_check, 'cron', hour=9, minute=0)
+    # scheduler.add_job(run_update, 'cron', hour='6,12,18,23', minute=1)
+    # scheduler.add_job(run_escrow_update, 'cron', hour=23, minute=0)
+    # scheduler.start()
+
     return scheduler
 

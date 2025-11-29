@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Testimonial } from '../../../../../core/models/feedback.interface';
+import { Testimonial } from '../../../../../core/interfaces/feedback.interface';
 import { CommonModule, DatePipe } from '@angular/common';
 
 @Component({

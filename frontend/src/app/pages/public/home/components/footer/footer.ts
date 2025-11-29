@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FooterSection } from '../../../../../core/models/footer.interface';
+import { FooterSection } from '../../../../../core/interfaces/footer.interface';
 import { CommonModule } from '@angular/common';
 
 @Component({

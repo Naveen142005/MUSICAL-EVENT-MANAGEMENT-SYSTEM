@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AboutUsSection } from '../../../../../core/models/aboutus.interface';
+import { AboutUsSection } from '../../../../../core/interfaces/aboutus.interface';
 import { CommonModule } from '@angular/common';
 
 @Component({
