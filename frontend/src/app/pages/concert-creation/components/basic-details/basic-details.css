@@ -1,0 +1,46 @@
+/* Colors applied directly */
+.primary-bg {
+    background-color: #4b0082;
+}
+.primary-text {
+    color: #4b0082;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #4b0082 0%, #9b59b6 100%);
+}
+
+.secondary-bg {
+    background-color: #9b59b6;
+}
+.secondary-text {
+    color: #9b59b6;
+}
+
+.accent-bg {
+    background-color: #9b59b6;
+}
+.accent-text {
+    color: #9b59b6;
+}
+
+/* Card style */
+.card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Fade animation */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

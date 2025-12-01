@@ -1,0 +1,237 @@
+<div id="step1" class="step-content fade-in">
+    <div class="bg-white rounded-lg card-shadow p-6 md:p-8">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold primary-text mb-6">
+            <i class="fas fa-user-circle mr-3"></i>
+            Basic Details
+        </h2>
+
+        <form id="basicDetailsForm" class="space-y-6" [formGroup]="step1Form">
+            <div>
+                <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-2">
+                    <i class="fas fa-user mr-2"></i>Full Name *
+                </label>
+                <input
+                    formControlName="fullName"
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                />
+                @if (step1Form.get('fullName')?.touched && step1Form.get('fullName')?.errors) {
+                <div class="error-message text-red-500 text-sm mt-1">
+                    @if (step1Form.get('fullName')?.errors?.['required']) {
+                    <p>Full Name is required.</p>
+                    } @if (step1Form.get('fullName')?.errors?.['minlength']) {
+                    <p>Full Name must be at least 3 characters.</p>
+                    } @if (step1Form.get('fullName')?.errors?.['pattern']) {
+                    <p>Only letters allowed. Numbers or Special Characters not accepted.</p>
+                    }
+                </div>
+                }
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                    <i class="fas fa-envelope mr-2"></i>Email Address *
+                </label>
+                <input
+                    formControlName="email"
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                />
+                @if (step1Form.get('email')?.touched && step1Form.get('email')?.errors) {
+                <div class="error-message text-red-500 text-sm mt-1">
+                    @if (step1Form.get('email')?.errors?.['required']) {
+                    <p>Email is required.</p>
+                    } @if (step1Form.get('email')?.errors?.['pattern']) {
+                    <p>Please enter a proper email like: example@gmail.com</p>
+                    }
+                </div>
+                }
+            </div>
+
+            <div>
+                <label for="mobile" class="block text-sm font-semibold text-gray-700 mb-2">
+                    <i class="fas fa-phone mr-2"></i>Mobile Number *
+                </label>
+                <input
+                    formControlName="mobile"
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    placeholder="Enter 7-15 digits"
+                />
+                @if (step1Form.get('mobile')?.touched && step1Form.get('mobile')?.errors) {
+                <div class="error-message text-red-500 text-sm mt-1">
+                    @if (step1Form.get('mobile')?.errors?.['required']) {
+                    <p>Mobile number is required.</p>
+                    } @if (step1Form.get('mobile')?.errors?.['pattern']) {
+                    <p>Enter a valid mobile number (7–15 digits).</p>
+                    }
+                </div>
+                }
+            </div>
+
+            <div>
+                <label for="eventName" class="block text-sm font-semibold text-gray-700 mb-2">
+                    <i class="fas fa-tag mr-2"></i>Event Name
+                </label>
+                <input
+                    formControlName="eventName"
+                    type="text"
+                    id="eventName"
+                    name="eventName"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    placeholder="Enter your event name"
+                />
+                @if (step1Form.get('eventName')?.touched && step1Form.get('eventName')?.errors) {
+                <div class="error-message text-red-500 text-sm mt-1">
+                    @if (step1Form.get('eventName')?.errors?.['required']) {
+                    <p>Event name is required.</p>
+                    }
+                    
+                </div>
+                }
+            </div>
+
+            <div>
+                <label
+                    for="eventDescription"
+                    class="block text-sm font-semibold text-gray-700 mb-2"
+                >
+                    <i class="fas fa-align-left mr-2"></i>Event Description
+                </label>
+                <textarea
+                    formControlName="eventDescription"
+                    id="eventDescription"
+                    name="eventDescription"
+                    rows="3"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    placeholder="Describe your event..."
+                ></textarea>
+                @if (step1Form.get('eventDescription')?.touched &&
+                step1Form.get('eventDescription')?.errors) {
+                <div class="error-message text-red-500 text-sm mt-1">
+                    @if (step1Form.get('eventDescription')?.errors?.['required']) {
+                    <p>Event description is required.</p>
+                    } @if (step1Form.get('eventDescription')?.errors?.['minlength']) {
+                    <p>Description must be at least 10 characters.</p>
+                    }
+                </div>
+                }
+            </div>
+
+            <div>
+                <label for="eventBanner" class="block text-sm font-semibold text-gray-700 mb-2">
+                    <i class="fas fa-image mr-2"></i>Event Banner Photo
+                </label>
+                <input
+                    (change)="onBannerSelected($event)"
+                    type="file"
+                    id="eventBanner"
+                    name="eventBanner"
+                    accept="image/*"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                />
+                <p class="text-sm text-gray-500 mt-1">Upload banner image (JPG, PNG, max 5MB)</p>
+                @if (step1Form.get('eventBanner')?.touched && step1Form.get('eventBanner')?.errors)
+                {
+                <div class="error-message text-red-500 text-sm mt-1">
+                    @if (step1Form.get('eventBanner')?.errors?.['required']) {
+                    <p>Event banner is required.</p>
+                    } @if (step1Form.get('eventBanner')?.errors?.['maxSize']) {
+                    <p>File too large (max 5MB allowed).</p>
+                    }
+                </div>
+                }
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-4">
+                    <i class="fas fa-clock mr-2"></i>Concert Time *
+                </label>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <label
+                        (click)="updateConcertTime('Morning')"
+                        class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-purple-300 transition-all"
+                    >
+                        <input type="radio" name="concertTime" value="morning" class="sr-only" />
+                        <div
+                            class="radio-custom w-5 h-5 border-2 border-gray-300 rounded-full mr-3 flex items-center justify-center"
+                        >
+                            <div
+                                class="w-2 h-2 bg-purple-600 rounded-full"
+                                [ngClass]="{ hidden: concertTime != 'Morning' }"
+                            ></div>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Morning</div>
+                            <div class="text-sm text-gray-500">6:00 AM - 12:00 PM</div>
+                        </div>
+                    </label>
+                    <label
+                        (click)="updateConcertTime('AfterNoon')"
+                        class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-purple-300 transition-all"
+                    >
+                        <input type="radio" name="concertTime" value="afternoon" class="sr-only" />
+                        <div
+                            class="radio-custom w-5 h-5 border-2 border-gray-300 rounded-full mr-3 flex items-center justify-center"
+                        >
+                            <div
+                                class="w-2 h-2 bg-purple-600 rounded-full"
+                                [ngClass]="{ hidden: concertTime != 'AfterNoon' }"
+                            ></div>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Afternoon</div>
+                            <div class="text-sm text-gray-500">12:00 PM - 6:00 PM</div>
+                        </div>
+                    </label>
+                    <label
+                        (click)="updateConcertTime('Night')"
+                        class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-purple-300 transition-all"
+                    >
+                        <input type="radio" name="concertTime" value="night" class="sr-only" />
+                        <div
+                            class="radio-custom w-5 h-5 border-2 border-gray-300 rounded-full mr-3 flex items-center justify-center"
+                        >
+                            <div
+                                class="w-2 h-2 bg-purple-600 rounded-full"
+                                [ngClass]="{ hidden: concertTime != 'Night' }"
+                            ></div>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Night</div>
+                            <div class="text-sm text-gray-500">6:00 PM - 12:00 AM</div>
+                        </div>
+                    </label>
+                </div>
+                <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                @if (nextButtonClicked && concertTime == '') {
+                <div class="error-message text-red-500 text-sm mt-1">
+                    <p>Select a concert time.</p>
+                </div>
+                }
+            </div>
+        </form>
+
+        <div class="flex justify-end mt-8">
+            <button
+                (click)="nextStep()"
+                id="nextStep1"
+                class="primary-bg text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-all transform hover:scale-105"
+            >
+                Next Step <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </div>
+</div>

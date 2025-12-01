@@ -10,6 +10,13 @@
     --border-subtle: rgba(148, 163, 184, 0.2);
 }
 
+.font-heading {
+    font-family: 'Playfair Display', serif;
+}
+.font-body {
+    font-family: 'Source Sans Pro', sans-serif !important;
+}
+
 @media (max-width: 500px) {
     #outside,
     #inside {
@@ -23,13 +30,7 @@ html {
 #s3 {
     color: yellow !important;
 }
-* {
-    font-family: 'Montserrat', sans-serif !important;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-   
-}
+
 
 .parallax-footer {
     background-position: center;

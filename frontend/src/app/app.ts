@@ -5,11 +5,12 @@ import { NavBar } from "./shared/nav-bar/nav-bar";
 import { Venue } from "./pages/public/facilities/venue/venue";
 import { Band } from "./pages/public/facilities/band/band";
 import { Decoration } from "./pages/public/facilities/decoration/decoration";
+import { ConcertCreation } from "./pages/concert-creation/concert-creation";
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Home, Venue, Band, Decoration],
+  imports: [RouterOutlet, Home, Venue, Band, Decoration, ConcertCreation],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

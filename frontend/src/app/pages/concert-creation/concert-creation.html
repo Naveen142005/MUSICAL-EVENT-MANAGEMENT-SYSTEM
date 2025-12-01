@@ -1,0 +1,137 @@
+<div class="font-body bg-gray-50 min-h-screen">
+    <header class="primary-bg text-white py-6 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <!-- Title -->
+            <div class="text-center md:text-left">
+                <h1
+                    class="font-heading text-3xl md:text-4xl font-bold flex items-center justify-center md:justify-start"
+                >
+                    <i class="fa-solid fa-music mr-3"></i>
+
+                    Thigazhi Concert Management
+                </h1>
+                <p class="mt-2 text-purple-200">Premium Concert Booking Experience</p>
+            </div>
+
+            <!-- Back to Home Link -->
+            <div class="mt-4 md:mt-0">
+                <p
+                    onclick="goHome()"
+                    class="back-btn px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium premium-shadow flex items-center space-x-2"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                        ></path>
+                    </svg>
+                    <span>Back to Home</span>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Progress Indicator -->
+    <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-40" id="scrollbar">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center space-x-2 md:space-x-4">
+                    <div
+                        onclick="fun(1)"
+                        id="step_1"
+                        class="step-indicator active w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold"
+                    >
+                        1
+                    </div>
+                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div
+                        onclick="fun(2)"
+                        id="step_2"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                    >
+                        2
+                    </div>
+                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div
+                        onclick="fun(3)"
+                        id="step_3"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                    >
+                        3
+                    </div>
+                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div
+                        onclick="fun(4)"
+                        id="step_4"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                    >
+                        4
+                    </div>
+                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div
+                        onclick="fun(5)"
+                        id="step_5"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                    >
+                        5
+                    </div>
+                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div
+                        onclick="fun(6)"
+                        id="step_6"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                    >
+                        6
+                    </div>
+                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div
+                        onclick="fun(7)"
+                        id="step_7"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                    >
+                        7
+                    </div>
+                </div>
+            </div>
+            <div class="progress-bar h-2 rounded-full" style="width: 14.28%"></div>
+        </div>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Form Section -->
+            <div class="lg:col-span-2">
+                @if (currStep == 1) {
+                    <app-basic-details (next)="(currStep += $event)" (summary)="updateSummary($event)"></app-basic-details>
+                }
+                @if (currStep == 2) {
+                    <button (click)="currStep -= 1">click</button>
+                }
+            </div>
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg card-shadow p-6 sticky top-32">
+                    <h3 class="font-heading text-xl font-bold primary-text mb-4">
+                        <i class="fas fa-receipt mr-2"></i>
+                        Booking Summary
+                    </h3>
+
+                    <div id="liveSummary" class="space-y-4">
+                        <div class="text-center text-gray-500 py-8">
+                            <i class="fas fa-clipboard-list text-4xl mb-4"></i>
+                            <p>Your selections will appear here</p>
+                        </div>
+                    </div>
+
+                    <div id="totalCost" class="border-t pt-4 mt-4 hidden">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold">Total Cost:</span>
+                            <span id="totalAmount" class="text-xl font-bold primary-text">₹0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
