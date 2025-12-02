@@ -1,4 +1,8 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { Band, Venue } from './models/venues-bands.interfaces';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ConcertCreationService {
@@ -19,4 +23,15 @@ export class ConcertCreationService {
     get(step: number) {
         return this.data[`step${step}`];
     }
-}   
+
+    http = inject(HttpClient);
+    baseUrl = environment.apiBase;
+
+    getVenues() {
+        return firstValueFrom(this.http.get<Venue[]>(`${this.baseUrl}/facilities/get_venues`));
+    }
+
+    getBands() {
+        return firstValueFrom(this.http.get<Band[]>(`${this.baseUrl}/facilities/get_bands`));
+    }
+}

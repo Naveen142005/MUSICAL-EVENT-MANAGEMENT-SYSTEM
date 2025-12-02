@@ -103,12 +103,14 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Form Section -->
             <div class="lg:col-span-2">
-                @if (currStep == 1) {
-                    <app-basic-details (next)="(currStep += $event)" (summary)="updateSummary($event)"></app-basic-details>
-                }
-                @if (currStep == 2) {
-                    <button (click)="currStep -= 1">click</button>
-                }
+               
+                    <!-- <app-basic-details (next)="(currStep += $event)" (summary)="updateSummary($event)" [class.hidden] = "currStep != 1"></app-basic-details> -->
+                
+              
+                    <!-- <button (click)="currStep -= 1" [class.hidden] = "currStep != 2">click</button> -->
+
+                    <app-venues-bands></app-venues-bands>
+                
             </div>
             <div class="lg:col-span-1">
                 <div class="bg-white rounded-lg card-shadow p-6 sticky top-32">

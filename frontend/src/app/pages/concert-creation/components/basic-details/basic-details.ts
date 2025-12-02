@@ -29,32 +29,25 @@ export class BasicDetails {
     eventBannerFile: File | null = null;
 
     ngOnInit() {
-        const old = this.concertCreation.get(1)?.data;  
-
         this.nextButtonClicked = false;
-        this.concertTime = old?.concertTime || '';
-        this.eventBannerFile  = old?.eventBanner || null
         
-        console.log(old);
-        
-
         this.step1Form = this.fb.group({
             fullName: [
-                old?.fullName || '',
+                '',
                 [Validators.required, Validators.minLength(3), Validators.pattern(/^[A-Za-z ]+$/)],
             ],
             email: [
-                old?.email || '',
+                '',
                 [
                     Validators.required,
                     Validators.email,
                     Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
                 ],
             ],
-            mobile: [old?.mobile || '', [Validators.required, Validators.pattern(/^\d{7,15}$/)]],
-            eventName: [old?.eventName || '', Validators.required],
+            mobile: ['', [Validators.required, Validators.pattern(/^\d{7,15}$/)]],
+            eventName: ['', Validators.required],
             eventDescription: [
-                old?.eventDescription || '',
+                '',
                 [Validators.required, Validators.minLength(10)],
             ],
             eventBanner: [null, [Validators.required]],
@@ -93,8 +86,5 @@ export class BasicDetails {
 
         console.log('Step 1 Data:', data);
         console.log("Updated data:", this.concertCreation.get(1));
-        
-        // TODO: send to BookingService
-        // this.bookingService.update({ basicDetails: data });
     }
 }
