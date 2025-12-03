@@ -1,0 +1,118 @@
+<div id="step4" class="step-content">
+    <div class="bg-white rounded-lg card-shadow p-6 md:p-8">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold primary-text mb-6">
+            <i class="fas fa-calendar-alt mr-3"></i>
+            Select Date & Check Availability
+        </h2>
+
+   
+        <div class="mb-6">
+            
+            <div class="flex items-center justify-between mb-4">
+                <button (click)="prevMonth()" class="p-2 rounded-lg hover:bg-gray-100" [ngClass]="{
+                        'cursor-not-allowed opacity-40': prevDisabled,
+                        'cursor-pointer': !prevDisabled
+                    }">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <h3 id="currentMonth" class="text-xl font-semibold">
+                    {{ monthNames[currMonth] }} {{ currYear }}
+                </h3>
+                <button
+                    (click)="nextMonth()"
+                    class="p-2 rounded-lg hover:bg-gray-100"
+                    [ngClass]="{
+                        'cursor-not-allowed opacity-40': nxtDisabled,
+                        'cursor-pointer': !nxtDisabled
+                    }"
+                    [disabled]="nxtDisabled"
+                >
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-7 gap-2 mb-4">
+                <div class="text-center font-semibold text-gray-600 py-2">Sun</div>
+                <div class="text-center font-semibold text-gray-600 py-2">Mon</div>
+                <div class="text-center font-semibold text-gray-600 py-2">Tue</div>
+                <div class="text-center font-semibold text-gray-600 py-2">Wed</div>
+                <div class="text-center font-semibold text-gray-600 py-2">Thu</div>
+                <div class="text-center font-semibold text-gray-600 py-2">Fri</div>
+                <div class="text-center font-semibold text-gray-600 py-2">Sat</div>
+            </div>
+
+            <div class="grid grid-cols-7 gap-2">
+                @for (week of calendar; track $index) { @for (cell of week; track $index) {
+
+                <!-- Empty cells -->
+                @if (cell.day === 0) {
+                <div></div>
+                }
+
+                <!-- Past dates -->
+                @else if (cell.isPast) {
+                <div
+                    class="calendar-cell p-3 text-center rounded-lg border transition-all duration-200 hover:shadow-md bg-gray-200 text-gray-400 cursor-not-allowed opacity-50"
+                    title="Past date"
+                >
+                    {{ cell.day }}
+                </div>
+                }
+
+                <!-- Available dates -->
+                @else {
+                <div
+                    class="calendar-cell p-3 text-center rounded-lg cursor-pointer border transition-all duration-200 hover:shadow-md available bg-green-100 hover:bg-green-200 text-green-800 border-green-300 hover:border-green-400"
+                    (click)="selectDate(cell.date)"
+                    title="Available"
+                >
+                    {{ cell.day }}
+                </div>
+                } } }
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-6 mb-6">
+            <div class="flex items-center">
+                <div class="w-4 h-4 bg-green-100 rounded mr-2"></div>
+                <span class="text-sm">Available</span>
+            </div>
+            <div class="flex items-center">
+                <div class="w-4 h-4 bg-red-500 rounded mr-2"></div>
+                <span class="text-sm">Unavailable</span>
+            </div>
+            <div class="flex items-center">
+                <div class="w-4 h-4 primary-bg rounded mr-2"></div>
+                <span class="text-sm">Selected</span>
+            </div>
+        </div>
+
+        <!-- Alternatives Panel -->
+        <div
+            id="alternativesPanel"
+            class="hidden bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6"
+        >
+            <h4 class="font-semibold text-yellow-800 mb-3">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                Some items are unavailable for this date. Here are alternatives:
+            </h4>
+            <div id="alternativesList"></div>
+        </div>
+
+        <div class="flex justify-between mt-8">
+            <button
+                id="prevStep4"
+                class="bg-gray-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-all"
+            >
+                <i class="fas fa-arrow-left mr-2"></i>Previous
+            </button>
+            <button
+                id="nextStep4"
+                class="primary-bg text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled
+            >
+                Next Step <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </div>
+</div>

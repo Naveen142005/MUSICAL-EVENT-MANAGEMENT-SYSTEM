@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Band, Venue } from './models/venues-bands.interfaces';
 import { firstValueFrom } from 'rxjs';
+import { Decoration, Snack } from './models/decortions.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ConcertCreationService {
@@ -33,5 +34,14 @@ export class ConcertCreationService {
 
     getBands() {
         return firstValueFrom(this.http.get<Band[]>(`${this.baseUrl}/facilities/get_bands`));
+    }
+
+    getDecorations() {
+        return firstValueFrom(
+            this.http.get<Decoration[]>(`${this.baseUrl}/facilities/get_decorations`)
+        );
+    }
+    getSnackBoxes() {
+        return firstValueFrom(this.http.get<Snack[]>(`${this.baseUrl}/facilities/get_snacks`));
     }
 }

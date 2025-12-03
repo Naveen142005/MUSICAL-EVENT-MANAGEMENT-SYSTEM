@@ -112,7 +112,7 @@ def get_all_snacks(
     sort_by: str | None = Query(None, description="Sort by this column name (like price or id)."),
     order: SortOrder = Query(SortOrder.asc, description="Sort order — 'asc' or 'desc'."),
     db: Session = Depends(db.get_db),
-    current_user: dict = Depends(role_requires("Organizer", "Audience"))
+   
 
 ):
     """Organizer or Audience can Access"""

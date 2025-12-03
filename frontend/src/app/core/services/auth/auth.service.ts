@@ -10,7 +10,6 @@ export class AuthService {
     baseAPIUrl = environment.apiBase;
     isLoggedIn = signal(false)
 
-
     private tokenKey = 'token';
     private userKey = 'user';
 

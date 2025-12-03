@@ -198,6 +198,21 @@ button.primary-bg:hover {
     display: none;
 }
 
+/* Table cell spacing */
+/* table td {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+} */
+
+/* Icon column width */
+/* table td:first-child {
+    width: 30px;
+    text-align: left;
+} */
+
+/* Vertical alignment */
+
+
 /* Toggle Switch Styling */
 .sr-only {
     position: absolute;

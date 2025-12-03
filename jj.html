@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venues & Bands - Step 2</title>
+    <title>Snack Selection - Simple</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -20,12 +20,8 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-        }
-
-        .card-shadow {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .bg-white {
@@ -36,36 +32,31 @@
             border-radius: 12px;
         }
 
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
         .p-6 {
             padding: 1.5rem;
         }
 
-        .p-8 {
-            padding: 2rem;
-        }
-
-        .primary-text {
-            color: #667eea;
-        }
-
-        .primary-bg {
-            background: #667eea;
+        .mb-4 {
+            margin-bottom: 1rem;
         }
 
         .mb-6 {
             margin-bottom: 1.5rem;
         }
 
-        .mb-8 {
-            margin-bottom: 2rem;
+        .primary-text {
+            color: #4b0082;
         }
 
         h2 {
             font-size: 1.875rem;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            color: #4b0082;
+            margin-bottom: 1.5rem;
         }
 
         h3 {
@@ -73,12 +64,7 @@
             font-weight: 600;
         }
 
-        h4 {
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        /* Toggle Switch */
+        /* Toggle */
         .toggle-container {
             display: flex;
             align-items: center;
@@ -93,12 +79,6 @@
             height: 24px;
         }
 
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
         .slider {
             position: absolute;
             cursor: pointer;
@@ -106,8 +86,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
-            transition: 0.4s;
+            background-color: #9333ea;
             border-radius: 24px;
         }
 
@@ -116,604 +95,142 @@
             content: "";
             height: 18px;
             width: 18px;
-            left: 3px;
+            right: 3px;
             bottom: 3px;
             background-color: white;
-            transition: 0.4s;
             border-radius: 50%;
         }
 
-        input:checked + .slider {
-            background-color: #667eea;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(20px);
-        }
-
-        /* Search Box */
-        .search-box {
-            position: relative;
-            margin-bottom: 1.5rem;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 12px 45px;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #9ca3af;
-            font-size: 18px;
-        }
-
-        /* Filters */
-        .filter-section {
+        /* Form Section */
+        .food-section {
             background: #f9fafb;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 8px;
-            margin-bottom: 1.5rem;
         }
 
-        .filter-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .filter-item label {
+        label {
             display: block;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #9333ea;
+            box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-text {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+
+        .total-box {
+            background: white;
+            border: 2px solid #4b0082;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-label {
+            font-size: 1rem;
+            font-weight: 600;
             color: #374151;
         }
 
-        .filter-item input,
-        .filter-item select {
-            width: 100%;
-            padding: 0.5rem 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-
-        .filter-item input:focus,
-        .filter-item select:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        /* Cards */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .venue-card,
-        .band-card {
-            background: white;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .venue-card:hover,
-        .band-card:hover {
-            border-color: #667eea;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.2);
-        }
-
-        .venue-card.selected,
-        .band-card.selected {
-            border-color: #667eea;
-            background: #f0f4ff;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-        }
-
-        .card-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #1f2937;
-        }
-
-        .card-badge {
-            background: #667eea;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .card-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            color: #6b7280;
-            font-size: 14px;
-        }
-
-        .card-info-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .card-info-item i {
-            color: #667eea;
-            width: 20px;
-        }
-
-        .rating {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .rating i {
-            color: #fbbf24;
-        }
-
-        .price {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #667eea;
-            margin-top: 1rem;
-        }
-
-        /* Hidden class */
-        .hidden {
-            display: none;
-        }
-
-        .hide {
-            display: none !important;
-        }
-
-        /* Buttons */
-        .btn-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-secondary {
-            background: #6b7280;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #4b5563;
-        }
-
-        .btn-primary {
-            background: #667eea;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #5568d3;
-            transform: scale(1.05);
-        }
-
-        /* No results */
-        .no-results {
-            text-align: center;
-            padding: 3rem;
-            color: #9ca3af;
-        }
-
-        .no-results i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .total-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4b0082;
         }
 
         @media (max-width: 768px) {
-            .cards-grid {
+            .form-row {
                 grid-template-columns: 1fr;
-            }
-
-            .filter-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h2 {
-                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="bg-white rounded-lg card-shadow p-6 p-8">
-            <h2 class="primary-text mb-6">
-                <i class="fas fa-building"></i>
-                Venues & Bands
+        <div class="bg-white rounded-lg card-shadow p-6">
+            <h2>
+                <i class="fas fa-star" style="margin-right: 0.5rem;"></i>
+                Extras & Add-ons
             </h2>
 
-            <!-- Venue Section -->
-            <div class="mb-8">
+            <!-- FOOD SECTION -->
+            <div class="mb-6">
                 <div class="toggle-container">
-                    <h3>Do you want a venue?</h3>
+                    <h3>Do you want food/snacks?</h3>
                     <label class="toggle-switch">
-                        <input type="checkbox" id="wantVenue">
+                        <input type="checkbox" checked style="display: none;">
                         <span class="slider"></span>
                     </label>
                 </div>
 
-                <div id="venueSection" class="hidden">
-                    <!-- Search Box -->
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="venueSearch" placeholder="Search venues by name, location, capacity...">
-                    </div>
+                <div class="food-section">
+                    <div class="form-row">
+                        <!-- Snack Box Selection -->
+                        <div>
+                            <label>
+                                <i class="fas fa-box" style="margin-right: 0.25rem;"></i>
+                                Select Snack Box
+                            </label>
+                            <select>
+                                <option value="">Choose a snack box...</option>
+                                <option value="1" selected>Snack Box 1 - ₹500 (Popcorn, Soda, Nachos)</option>
+                                <option value="2">Snack Box 2 - ₹1,000 (Orange, Apple)</option>
+                                <option value="3">Snack Box 3 - ₹750 (Chips, Cookies, Juice, Sandwiches)</option>
+                            </select>
+                        </div>
 
-                    <!-- Venue Filters -->
-                    <div class="filter-section">
-                        <h4>Filter Venues</h4>
-                        <div class="filter-grid">
-                            <div class="filter-item">
-                                <label>Min Price</label>
-                                <input type="number" id="venueMinPrice" placeholder="0">
-                            </div>
-                            <div class="filter-item">
-                                <label>Max Price</label>
-                                <input type="number" id="venueMaxPrice" placeholder="100000">
-                            </div>
-                            <div class="filter-item">
-                                <label>Min Capacity</label>
-                                <input type="number" id="venueMinCapacity" placeholder="0">
-                            </div>
-                            <div class="filter-item">
-                                <label>Max Capacity</label>
-                                <input type="number" id="venueMaxCapacity" placeholder="10000">
-                            </div>
-                            <div class="filter-item">
-                                <label>Min Rating</label>
-                                <select id="venueMinRating">
-                                    <option value="0">Any Rating</option>
-                                    <option value="3">3+ Stars</option>
-                                    <option value="4">4+ Stars</option>
-                                    <option value="4.5">4.5+ Stars</option>
-                                </select>
-                            </div>
+                        <!-- Quantity -->
+                        <div>
+                            <label>
+                                <i class="fas fa-sort-numeric-up" style="margin-right: 0.25rem;"></i>
+                                Quantity
+                            </label>
+                            <input type="number" value="5" min="1" placeholder="0">
                         </div>
                     </div>
 
-                    <!-- Venue List -->
-                    <div id="venueList" class="cards-grid"></div>
+                    <p class="info-text">
+                        <i class="fas fa-info-circle"></i>
+                        Each snack box serves approximately 10 people
+                    </p>
 
-                    <!-- No Results -->
-                    <div id="venueNoResults" class="no-results hidden">
-                        <i class="fas fa-search"></i>
-                        <p>No venues found matching your criteria</p>
+                    <!-- Total Cost -->
+                    <div class="total-box">
+                        <span class="total-label">Total Food Cost:</span>
+                        <span class="total-amount">₹2,500</span>
                     </div>
                 </div>
-            </div>
-
-            <!-- Band Section -->
-            <div class="mb-8">
-                <div class="toggle-container">
-                    <h3>Do you want a band?</h3>
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="wantBand">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-
-                <div id="bandSection" class="hidden">
-                    <!-- Search Box -->
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="bandSearch" placeholder="Search bands by name, genre, style...">
-                    </div>
-
-                    <!-- Band Filters -->
-                    <div class="filter-section">
-                        <h4>Filter Bands</h4>
-                        <div class="filter-grid">
-                            <div class="filter-item">
-                                <label>Min Price</label>
-                                <input type="number" id="bandMinPrice" placeholder="0">
-                            </div>
-                            <div class="filter-item">
-                                <label>Max Price</label>
-                                <input type="number" id="bandMaxPrice" placeholder="100000">
-                            </div>
-                            <div class="filter-item">
-                                <label>Genre</label>
-                                <select id="bandGenre">
-                                    <option value="">Any Genre</option>
-                                    <option value="Rock">Rock</option>
-                                    <option value="Pop">Pop</option>
-                                    <option value="Jazz">Jazz</option>
-                                    <option value="Classical">Classical</option>
-                                    <option value="Electronic">Electronic</option>
-                                    <option value="Hip Hop">Hip Hop</option>
-                                </select>
-                            </div>
-                            <div class="filter-item">
-                                <label>Min Rating</label>
-                                <select id="bandMinRating">
-                                    <option value="0">Any Rating</option>
-                                    <option value="3">3+ Stars</option>
-                                    <option value="4">4+ Stars</option>
-                                    <option value="4.5">4.5+ Stars</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Band List -->
-                    <div id="bandList" class="cards-grid"></div>
-
-                    <!-- No Results -->
-                    <div id="bandNoResults" class="no-results hidden">
-                        <i class="fas fa-search"></i>
-                        <p>No bands found matching your criteria</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Navigation Buttons -->
-            <div class="btn-container">
-                <button class="btn btn-secondary">
-                    <i class="fas fa-arrow-left"></i>Previous
-                </button>
-                <button class="btn btn-primary">
-                    Next Step <i class="fas fa-arrow-right"></i>
-                </button>
             </div>
         </div>
     </div>
-
-    <script>
-        // Sample Data
-        const venues = [
-            { id: 1, name: "Grand Arena", location: "New York", capacity: 5000, price: 50000, rating: 4.8 },
-            { id: 2, name: "City Hall", location: "Los Angeles", capacity: 2000, price: 30000, rating: 4.5 },
-            { id: 3, name: "Ocean View Theater", location: "Miami", capacity: 1500, price: 25000, rating: 4.7 },
-            { id: 4, name: "Mountain Lodge", location: "Denver", capacity: 800, price: 15000, rating: 4.3 },
-            { id: 5, name: "Riverside Convention Center", location: "Chicago", capacity: 3000, price: 40000, rating: 4.6 },
-            { id: 6, name: "Downtown Plaza", location: "Seattle", capacity: 1200, price: 20000, rating: 4.4 },
-        ];
-
-        const bands = [
-            { id: 1, name: "The Rockers", genre: "Rock", price: 15000, rating: 4.7, members: 5 },
-            { id: 2, name: "Jazz Masters", genre: "Jazz", price: 12000, rating: 4.8, members: 4 },
-            { id: 3, name: "Pop Stars", genre: "Pop", price: 20000, rating: 4.9, members: 6 },
-            { id: 4, name: "Classical Ensemble", genre: "Classical", price: 18000, rating: 4.6, members: 8 },
-            { id: 5, name: "Electronic Beats", genre: "Electronic", price: 10000, rating: 4.5, members: 2 },
-            { id: 6, name: "Hip Hop Crew", genre: "Hip Hop", price: 16000, rating: 4.7, members: 4 },
-        ];
-
-        let selectedVenue = null;
-        let selectedBand = null;
-
-        // Toggle Sections
-        document.getElementById('wantVenue').addEventListener('change', function() {
-            const venueSection = document.getElementById('venueSection');
-            venueSection.classList.toggle('hidden');
-            if (!venueSection.classList.contains('hidden')) {
-                renderVenues(venues);
-            }
-        });
-
-        document.getElementById('wantBand').addEventListener('change', function() {
-            const bandSection = document.getElementById('bandSection');
-            bandSection.classList.toggle('hidden');
-            if (!bandSection.classList.contains('hidden')) {
-                renderBands(bands);
-            }
-        });
-
-        // Render Venues
-        function renderVenues(venuesToRender) {
-            const venueList = document.getElementById('venueList');
-            const noResults = document.getElementById('venueNoResults');
-            
-            venueList.innerHTML = '';
-            
-            if (venuesToRender.length === 0) {
-                noResults.classList.remove('hidden');
-                return;
-            }
-            
-            noResults.classList.add('hidden');
-            
-            venuesToRender.forEach(venue => {
-                const card = document.createElement('div');
-                card.className = 'venue-card';
-                card.dataset.id = venue.id;
-                if (selectedVenue === venue.id) card.classList.add('selected');
-                
-                card.innerHTML = `
-                    <div class="card-header">
-                        <div class="card-title">${venue.name}</div>
-                        <div class="card-badge">${venue.rating} ⭐</div>
-                    </div>
-                    <div class="card-info">
-                        <div class="card-info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>${venue.location}</span>
-                        </div>
-                        <div class="card-info-item">
-                            <i class="fas fa-users"></i>
-                            <span>Capacity: ${venue.capacity.toLocaleString()}</span>
-                        </div>
-                    </div>
-                    <div class="price">₹${venue.price.toLocaleString()}</div>
-                `;
-                
-                card.addEventListener('click', () => selectVenue(venue.id));
-                venueList.appendChild(card);
-            });
-        }
-
-        // Render Bands
-        function renderBands(bandsToRender) {
-            const bandList = document.getElementById('bandList');
-            const noResults = document.getElementById('bandNoResults');
-            
-            bandList.innerHTML = '';
-            
-            if (bandsToRender.length === 0) {
-                noResults.classList.remove('hidden');
-                return;
-            }
-            
-            noResults.classList.add('hidden');
-            
-            bandsToRender.forEach(band => {
-                const card = document.createElement('div');
-                card.className = 'band-card';
-                card.dataset.id = band.id;
-                if (selectedBand === band.id) card.classList.add('selected');
-                
-                card.innerHTML = `
-                    <div class="card-header">
-                        <div class="card-title">${band.name}</div>
-                        <div class="card-badge">${band.rating} ⭐</div>
-                    </div>
-                    <div class="card-info">
-                        <div class="card-info-item">
-                            <i class="fas fa-music"></i>
-                            <span>${band.genre}</span>
-                        </div>
-                        <div class="card-info-item">
-                            <i class="fas fa-user-friends"></i>
-                            <span>${band.members} members</span>
-                        </div>
-                    </div>
-                    <div class="price">₹${band.price.toLocaleString()}</div>
-                `;
-                
-                card.addEventListener('click', () => selectBand(band.id));
-                bandList.appendChild(card);
-            });
-        }
-
-        // Select Functions
-        function selectVenue(id) {
-            selectedVenue = selectedVenue === id ? null : id;
-            const cards = document.querySelectorAll('.venue-card');
-            cards.forEach(card => {
-                if (parseInt(card.dataset.id) === id) {
-                    card.classList.toggle('selected');
-                } else {
-                    card.classList.remove('selected');
-                }
-            });
-        }
-
-        function selectBand(id) {
-            selectedBand = selectedBand === id ? null : id;
-            const cards = document.querySelectorAll('.band-card');
-            cards.forEach(card => {
-                if (parseInt(card.dataset.id) === id) {
-                    card.classList.toggle('selected');
-                } else {
-                    card.classList.remove('selected');
-                }
-            });
-        }
-
-        // Filter Venues
-        function filterVenues() {
-            const searchTerm = document.getElementById('venueSearch').value.toLowerCase();
-            const minPrice = parseFloat(document.getElementById('venueMinPrice').value) || 0;
-            const maxPrice = parseFloat(document.getElementById('venueMaxPrice').value) || Infinity;
-            const minCapacity = parseFloat(document.getElementById('venueMinCapacity').value) || 0;
-            const maxCapacity = parseFloat(document.getElementById('venueMaxCapacity').value) || Infinity;
-            const minRating = parseFloat(document.getElementById('venueMinRating').value) || 0;
-
-            const filtered = venues.filter(venue => {
-                const matchesSearch = venue.name.toLowerCase().includes(searchTerm) || 
-                                     venue.location.toLowerCase().includes(searchTerm) ||
-                                     venue.capacity.toString().includes(searchTerm);
-                const matchesPrice = venue.price >= minPrice && venue.price <= maxPrice;
-                const matchesCapacity = venue.capacity >= minCapacity && venue.capacity <= maxCapacity;
-                const matchesRating = venue.rating >= minRating;
-
-                return matchesSearch && matchesPrice && matchesCapacity && matchesRating;
-            });
-
-            renderVenues(filtered);
-        }
-
-        // Filter Bands
-        function filterBands() {
-            const searchTerm = document.getElementById('bandSearch').value.toLowerCase();
-            const minPrice = parseFloat(document.getElementById('bandMinPrice').value) || 0;
-            const maxPrice = parseFloat(document.getElementById('bandMaxPrice').value) || Infinity;
-            const genre = document.getElementById('bandGenre').value;
-            const minRating = parseFloat(document.getElementById('bandMinRating').value) || 0;
-
-            const filtered = bands.filter(band => {
-                const matchesSearch = band.name.toLowerCase().includes(searchTerm) || 
-                                     band.genre.toLowerCase().includes(searchTerm);
-                const matchesPrice = band.price >= minPrice && band.price <= maxPrice;
-                const matchesGenre = !genre || band.genre === genre;
-                const matchesRating = band.rating >= minRating;
-
-                return matchesSearch && matchesPrice && matchesGenre && matchesRating;
-            });
-
-            renderBands(filtered);
-        }
-
-        // Event Listeners
-        document.getElementById('venueSearch').addEventListener('input', filterVenues);
-        document.getElementById('venueMinPrice').addEventListener('input', filterVenues);
-        document.getElementById('venueMaxPrice').addEventListener('input', filterVenues);
-        document.getElementById('venueMinCapacity').addEventListener('input', filterVenues);
-        document.getElementById('venueMaxCapacity').addEventListener('input', filterVenues);
-        document.getElementById('venueMinRating').addEventListener('change', filterVenues);
-
-        document.getElementById('bandSearch').addEventListener('input', filterBands);
-        document.getElementById('bandMinPrice').addEventListener('input', filterBands);
-        document.getElementById('bandMaxPrice').addEventListener('input', filterBands);
-        document.getElementById('bandGenre').addEventListener('change', filterBands);
-        document.getElementById('bandMinRating').addEventListener('change', filterBands);
-    </script>
 </body>
 </html>

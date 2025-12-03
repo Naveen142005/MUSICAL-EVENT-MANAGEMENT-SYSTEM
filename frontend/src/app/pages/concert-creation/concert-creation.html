@@ -1,3 +1,14 @@
+<input
+    type="number"
+    name=""
+    id=""
+    [(ngModel)]="currStep"
+    class="w-dvw border border-fuchsia-600 border-double"
+    style="border-width: 5px; padding: 5px"
+/>
+
+{{currStep}}
+
 <div class="font-body bg-gray-50 min-h-screen">
     <header class="primary-bg text-white py-6 px-4">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
@@ -103,13 +114,27 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Form Section -->
             <div class="lg:col-span-2">
-               
-                    <!-- <app-basic-details (next)="(currStep += $event)" (summary)="updateSummary($event)" [class.hidden] = "currStep != 1"></app-basic-details> -->
-                
-              
-                    <!-- <button (click)="currStep -= 1" [class.hidden] = "currStep != 2">click</button> -->
+                <!-- <app-basic-details
+                    (next)="(currStep += $event)"
+                    (summary)="updateSummary($event)"
+                    [class.hidden]="currStep != 1"
+                ></app-basic-details>
 
-                    <app-venues-bands></app-venues-bands>
+
+                <app-venues-bands
+                    (next)="(currStep += $event)"
+                    (previous)="(currStep += $event)"
+                    [class.hidden]="currStep != 2"
+                ></app-venues-bands>
+
+                <app-decoration-addons
+                    (next)="(currStep += $event)"
+                    (previous)="(currStep += $event)"
+                    [class.hidden]="currStep != 3"
+                ></app-decoration-addons> -->
+
+                <app-date-checking></app-date-checking>
+
                 
             </div>
             <div class="lg:col-span-1">
