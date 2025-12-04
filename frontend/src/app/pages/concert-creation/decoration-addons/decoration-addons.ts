@@ -206,10 +206,14 @@ export class DecorationAddons {
 
     // Navigation
     nextStep() {
-        if (!this.snackQuantity() || this.snackQuantity() < 1) {
-            this.quantityError = "Quantity can't be empty";
-            return;
-        }
+        
+        // if (!this.snackQuantity() || this.snackQuantity() < 1) {
+        //     this.quantityError = "Quantity can't be empty";
+        //     return;
+        // }
+
+        console.log("ncakl");
+        
         const data = {
             decoration: this.selectedDecoration,
             selectedSnackBoxId: this.selectedSnackBoxId(),

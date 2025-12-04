@@ -626,6 +626,69 @@ class EventService:
 
         return response
     
+    async def calender(self, db, start_date=None, end_date=None, slot=None, status=None):
+        # Step 1: Get data from PostgreSQL
+        query = (
+            db.query(
+                Event.id.label("event_id"),
+                Event.event_date,
+                Event.slot
+            )
+        )
+
+        # Filter by date range
+        if start_date and end_date:
+            query = query.filter(and_(Event.event_date >= start_date, Event.event_date <= end_date))
+        elif start_date:
+            query = query.filter(Event.event_date >= start_date)
+        elif end_date:
+            query = query.filter(Event.event_date <= end_date)
+
+        # Filter by slot
+        if slot:
+            query = query.filter(Event.slot == slot)
+
+        # Filter by status
+        
+        query = query.filter(or_(
+            Event.status == EventStatus.BOOKED,
+            Event.status == EventStatus.RESCHEDULED
+        ))
+
+        events = query.all()
+
+        # Step 2: Get event_ids to fetch from MongoDB
+        event_ids = [e.event_id for e in events]
+
+        # Fetch only required fields from MongoDB
+        cursor = col.find(
+            {"event_id": {"$in": event_ids}},
+            {"event_id": 1, "venue.id": 1, "band.id": 1, "decoration.id": 1, "_id": 0}
+        )
+
+        # Store MongoDB data by event_id
+        mongo_data = {}
+        async for doc in cursor:
+            mongo_data[doc["event_id"]] = doc
+
+        # Step 3: Combine and return
+        response = []
+        for e in events:
+            mongo_entry = mongo_data.get(e.event_id, {})
+            
+            data = {
+                "event_id": e.event_id,
+                "event_date": e.event_date.isoformat() if isinstance(e.event_date, date) else e.event_date,
+                "slot": e.slot,
+                "venue_id": mongo_entry.get("venue", {}).get("id"),
+                "band_id": mongo_entry.get("band", {}).get("id"),
+                "decoration_id": mongo_entry.get("decoration", {}).get("id")
+            }
+            
+            response.append(data)
+
+        return response
+
     def get_invoice(self, event_id:int, db:Session):
         event = get_row(db, Event, id=event_id)
         if not event:

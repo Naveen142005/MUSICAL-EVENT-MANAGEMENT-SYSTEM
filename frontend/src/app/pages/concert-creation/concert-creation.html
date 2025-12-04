@@ -7,7 +7,7 @@
     style="border-width: 5px; padding: 5px"
 />
 
-{{currStep}}
+{{ currStep }}
 
 <div class="font-body bg-gray-50 min-h-screen">
     <header class="primary-bg text-white py-6 px-4">
@@ -112,30 +112,34 @@
 
     <main class="max-w-6xl mx-auto px-4 py-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Form Section -->
+
             <div class="lg:col-span-2">
+   
                 <!-- <app-basic-details
-                    (next)="(currStep += $event)"
+                    (next)="nextStep($event)"
                     (summary)="updateSummary($event)"
-                    [class.hidden]="currStep != 1"
+                    [class.hidden]="currStep() != 1"
                 ></app-basic-details>
 
-
                 <app-venues-bands
-                    (next)="(currStep += $event)"
-                    (previous)="(currStep += $event)"
-                    [class.hidden]="currStep != 2"
+                    (next)="nextStep($event)"
+                    (previous)="previousStep($event)"
+                    [class.hidden]="currStep() != 2"
                 ></app-venues-bands>
 
                 <app-decoration-addons
-                    (next)="(currStep += $event)"
-                    (previous)="(currStep += $event)"
-                    [class.hidden]="currStep != 3"
-                ></app-decoration-addons> -->
+                    (next)="nextStep($event)"
+                    (previous)="previousStep($event)"
+                    [class.hidden]="currStep() != 3"
+                ></app-decoration-addons>
 
-                <app-date-checking></app-date-checking>
+                <app-date-checking [isActive]="currStep() == 4"
+                    (next)="nextStep($event)"
+                    (previous)="previousStep($event)"
+                    [class.hidden]="currStep() != 4"
+                ></app-date-checking> -->
 
-                
+                <app-ticket-price></app-ticket-price>
             </div>
             <div class="lg:col-span-1">
                 <div class="bg-white rounded-lg card-shadow p-6 sticky top-32">

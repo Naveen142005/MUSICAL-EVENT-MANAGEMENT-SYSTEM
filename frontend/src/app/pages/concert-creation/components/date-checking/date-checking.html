@@ -5,14 +5,16 @@
             Select Date & Check Availability
         </h2>
 
-   
         <div class="mb-6">
-            
             <div class="flex items-center justify-between mb-4">
-                <button (click)="prevMonth()" class="p-2 rounded-lg hover:bg-gray-100" [ngClass]="{
+                <button
+                    (click)="prevMonth()"
+                    class="p-2 rounded-lg hover:bg-gray-100"
+                    [ngClass]="{
                         'cursor-not-allowed opacity-40': prevDisabled,
                         'cursor-pointer': !prevDisabled
-                    }">
+                    }"
+                >
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 <h3 id="currentMonth" class="text-xl font-semibold">
@@ -62,19 +64,21 @@
                 <!-- Available dates -->
                 @else {
                 <div
-                    class="calendar-cell p-3 text-center rounded-lg cursor-pointer border transition-all duration-200 hover:shadow-md available bg-green-100 hover:bg-green-200 text-green-800 border-green-300 hover:border-green-400"
-                    (click)="selectDate(cell.date)"
-                    title="Available"
+                    class="calendar-cell p-3 text-center rounded-lg border transition-all duration-200"
+                    [ngClass]="getClassForCell(cell)"
+                    (click)="cell.isAvailable ? selectDate(cell.date) : null"
+                    [title]="cell.isAvailable ? 'Available' : 'Not Available'"
                 >
                     {{ cell.day }}
                 </div>
+
                 } } }
             </div>
         </div>
 
         <div class="flex items-center space-x-6 mb-6">
             <div class="flex items-center">
-                <div class="w-4 h-4 bg-green-100 rounded mr-2"></div>
+                <div class="w-4 h-4 bg-green-400 rounded mr-2"></div>
                 <span class="text-sm">Available</span>
             </div>
             <div class="flex items-center">
@@ -101,15 +105,18 @@
 
         <div class="flex justify-between mt-8">
             <button
+                (click)="previous.emit(-1)"
                 id="prevStep4"
                 class="bg-gray-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-all"
             >
                 <i class="fas fa-arrow-left mr-2"></i>Previous
             </button>
             <button
+                (click)="next.emit(1)"
+                [disabled]="!selectedDate()"
+                [title]="selectedDate() ? '' : 'Please select a date first'"
                 id="nextStep4"
                 class="primary-bg text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled
             >
                 Next Step <i class="fas fa-arrow-right ml-2"></i>
             </button>

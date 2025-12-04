@@ -179,7 +179,7 @@
                         </div>
                     </label>
                     <label
-                        (click)="updateConcertTime('AfterNoon')"
+                        (click)="updateConcertTime('Afternoon')"
                         class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-purple-300 transition-all"
                     >
                         <input type="radio" name="concertTime" value="afternoon" class="sr-only" />
@@ -188,7 +188,7 @@
                         >
                             <div
                                 class="w-2 h-2 bg-purple-600 rounded-full"
-                                [ngClass]="{ hidden: concertTime != 'AfterNoon' }"
+                                [ngClass]="{ hidden: concertTime != 'Afternoon' }"
                             ></div>
                         </div>
                         <div>

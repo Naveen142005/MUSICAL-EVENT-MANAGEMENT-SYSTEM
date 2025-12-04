@@ -197,10 +197,28 @@ async def get_booked_events(
     print(slot , "====--")
     
     events = await event_service.get_booked_events_1(db, start_date, end_date, search, status, date_type, slot)
+    
+@details_router.get("/calender/booked-events")
+async def get_booked_events(
+    start_date: Optional[date] = Query(None, description="Filter from this date"),
+    end_date: Optional[date] = Query(None, description="Filter until this date"),
+    search: Optional[str] = Query(None, description="Global search across event fields"),
+    status: Optional[EventStatus] = Query(None,
+        description="Filter by status: upcoming, past, ongoing, rescheduled, cancelled"
+    ),
+    slot: SlotEnum = Query(None, description="Slot of the facility (Morning/Afternoon/Night)"),
+    db: Session = Depends(db.get_db)):
+# , current_user: dict = Depends(role_requires("Organizer"))):
+    
+    """For front-end Only"""
+    # ✅ Validation
+    print("==================")
+    if start_date and end_date and start_date > end_date:
+        raise HTTPException(status_code=400, detail="Start date cannot be after end date")
+    print(slot , "====--")
+    
+    events = await event_service.calender(db, start_date, end_date, slot, status)
 
-
-    if not events:
-        raise HTTPException(status_code=404, detail="No events found")
 
     return events
 

@@ -1,5 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import {
+    Component,
+    inject,
+    Output,
+    EventEmitter,
+    Input,
+    input,
+    effect,
+    signal,
+} from '@angular/core';
+import { ConcertCreationService } from '../../concert-creatation.services';
 
 @Component({
     selector: 'app-date-checking',
@@ -8,9 +18,19 @@ import { Component } from '@angular/core';
     styleUrl: './date-checking.css',
 })
 export class DateChecking {
-    selectDate(arg0: string) {
-        throw new Error('Method not implemented.');
+    isActive = input<boolean>(false);
+
+    constructor() {
+        effect(() => {
+            if (this.isActive()) {
+                this.callWhenLoaded();
+            }
+        });
     }
+
+    @Output() next = new EventEmitter<number>();
+    @Output() previous = new EventEmitter<number>();
+    @Output() summary = new EventEmitter<any>();
 
     calendar: {
         day: number;
@@ -19,10 +39,12 @@ export class DateChecking {
         isAvailable: boolean;
     }[][] = [];
 
+    availableDates: any = [];
     nxtDisabled = false;
     prevDisabled = true;
     currMonth: number = 0;
     today = new Date();
+    data: any;
     currYear: number = 0;
     monthNames = [
         'January',
@@ -38,10 +60,14 @@ export class DateChecking {
         'November',
         'December',
     ];
+    concertCreationService = inject(ConcertCreationService);
 
-    ngOnInit() {
+    async callWhenLoaded() {
+        this.data = this.concertCreationService.getAll();
         this.currMonth = this.today.getMonth();
         this.currYear = this.today.getFullYear();
+        this.availableDates = await this.concertCreationService.getAvailableDates();
+        console.log(this.availableDates);
 
         this.generateCalendar(this.today.getMonth(), this.today.getFullYear());
     }
@@ -52,7 +78,6 @@ export class DateChecking {
 
         let cnt = 1;
 
-        // Always create 6 rows for safety (some months need 6)
         this.calendar = Array.from({ length: 6 }, () =>
             Array.from({ length: 7 }, () => ({
                 day: 0,
@@ -72,12 +97,16 @@ export class DateChecking {
 
         // First week
         for (let j = firstDay; j < 7 && cnt <= totalDays; j++) {
-            const fullDate = `${year}-${month + 1}-${cnt}`;
+            const fullDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(cnt).padStart(
+                2,
+                '0'
+            )}`;
+
             this.calendar[0][j] = {
                 day: cnt,
                 date: fullDate,
                 isPast: isPastDate(cnt),
-                isAvailable: !isPastDate(cnt),
+                isAvailable: this.checkAvailable(fullDate),
             };
             cnt++;
         }
@@ -85,12 +114,15 @@ export class DateChecking {
         // Remaining weeks
         for (let i = 1; i < 6 && cnt <= totalDays; i++) {
             for (let j = 0; j < 7 && cnt <= totalDays; j++) {
-                const fullDate = `${year}-${month + 1}-${cnt}`;
+                const fullDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(
+                    cnt
+                ).padStart(2, '0')}`;
+
                 this.calendar[i][j] = {
                     day: cnt,
                     date: fullDate,
                     isPast: isPastDate(cnt),
-                    isAvailable: !isPastDate(cnt),
+                    isAvailable: this.checkAvailable(fullDate),
                 };
                 cnt++;
             }
@@ -98,6 +130,46 @@ export class DateChecking {
 
         console.log(this.calendar);
     }
+
+    checkAvailable(date: string) {
+        const bookedFacilities = this.availableDates[date];
+
+        if (!bookedFacilities) {
+            return true; // Date has no bookings, all available
+        }
+
+        const venueId = this.data['step2']?.venue?.id;
+        const bandId = this.data['step2']?.band?.id;
+        const decorationId = this.data['step3']?.decoration?.id;
+
+        const isVenueBooked = venueId && bookedFacilities.venue_ids.includes(venueId);
+        const isBandBooked = bandId && bookedFacilities.band_ids.includes(bandId);
+        const isDecorationBooked =
+            decorationId && bookedFacilities.decoration_ids.includes(decorationId);
+
+        return !isVenueBooked && !isBandBooked && !isDecorationBooked;
+    }
+
+    selectedDate = signal('');
+    selectDate(arg0: string) {
+        this.concertCreationService.update(4, { event_date: arg0 });
+        this.selectedDate.set(arg0);
+        console.log('see' + this.selectedDate());
+
+        console.log(this.concertCreationService.getAll());
+    }
+
+    // In component
+    getClassForCell(cell: any): string {
+        if (cell.date === this.selectedDate()) {
+            return 'bg-purple-600 text-white border-purple-700 cursor-pointer';
+        }
+        if (cell.isAvailable) {
+            return 'bg-green-400 hover:bg-green-200 border-green-300 hover:border-green-400 hover:shadow-md cursor-pointer';
+        }
+        return 'bg-red-100 text-red-400 border-red-200 cursor-not-allowed opacity-60';
+    }
+
     nextMonth() {
         this.prevDisabled = false;
         const max = new Date(this.today.getFullYear() + 1, this.today.getMonth(), 1);
@@ -120,23 +192,31 @@ export class DateChecking {
         this.generateCalendar(this.currMonth, this.currYear);
     }
     prevMonth() {
-        const current = new Date(); // today's date
-        const thisMonth = current.getMonth();
-        const thisYear = current.getFullYear();
-        if (!this.prevDisabled) {
-            if (this.currMonth === 0) {
-                this.currMonth = 11;
-                this.currYear--;
-            } else {
-                this.currMonth--;
-            }
-        }
-        // Block going past the current month of the current year
-        if (this.currYear === thisYear && this.currMonth == thisMonth) {
+        
+        const thisMonth = this.today.getMonth();
+        const thisYear = this.today.getFullYear();
+
+     
+        if (this.currYear === thisYear && this.currMonth === thisMonth) {
             this.prevDisabled = true;
-            return; // Stop here
+            return;
         }
 
-        // Normal backward movement
+       
+        if (this.currMonth === 0) {
+            this.currMonth = 11;
+            this.currYear--;
+        } else {
+            this.currMonth--;
+        }
+
+        
+        if (this.currYear === thisYear && this.currMonth === thisMonth) {
+            this.prevDisabled = true;
+        } else {
+            this.prevDisabled = false;
+        }
+
+        this.generateCalendar(this.currMonth, this.currYear);
     }
 }

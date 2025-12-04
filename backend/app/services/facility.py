@@ -207,6 +207,7 @@ class FacilityService:
         facility = await col.find_one({"event_id": event_id}, {"_id": 0})  
         return facility if facility else None
     
+    
        
     def get_facilities_available_dates(self ,slot, venue_id, band_id, decoration_id, no_days, db:Session):
         
@@ -224,13 +225,13 @@ class FacilityService:
             if get_row(db, Decorations, id=decoration_id) is None or decoration_id <=     0:
                 create_error('Enter Correct Decorations id')    
         
-        if no_days >= 101:
-            create_error('No of days can not exceed 100')
+        if no_days >= 400:
+            create_error('No of days can not exceed 367')
             
         date_str = datetime.now().date()
-        all_available_dates = []
+        all_available_dates = {}
         print(date_str)
-        while no_days != 0:
+        while no_days > 0:
             no_days -= 1
             all_available = True
             for (key, value) in model_dict:
@@ -239,10 +240,14 @@ class FacilityService:
                     if res: 
                         all_available = False
                         break
+            date_key = date_str.strftime("%Y-%m-%d")
             if all_available:
-                all_available_dates.append(date_str.strftime("%Y-%m-%d"))
+                all_available_dates[date_key] = True
+                
+            else:
+                all_available_dates[date_key] = False
+               
             date_str += timedelta(days=1)
-                        
         return all_available_dates
         
     def get_facility_bookings(self, db: Session, facility_type_id: int, facility_id: int, start_date, end_date):
@@ -278,9 +283,7 @@ class FacilityService:
             for row in query
         ]
         return results
-
     
-            
         
 facility_service = FacilityService()
 
