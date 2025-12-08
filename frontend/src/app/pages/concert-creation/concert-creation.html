@@ -7,7 +7,7 @@
     style="border-width: 5px; padding: 5px"
 />
 
-{{ currStep }}
+{{ currStep() }}
 
 <div class="font-body bg-gray-50 min-h-screen">
     <header class="primary-bg text-white py-6 px-4">
@@ -45,77 +45,131 @@
     </header>
 
     <!-- Progress Indicator -->
+
     <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-40" id="scrollbar">
         <div class="max-w-6xl mx-auto">
             <div class="flex items-center justify-between mb-2">
-                <div class="flex items-center space-x-2 md:space-x-4">
+                <div class="flex items-center space-x-2 md:space-x-4 relative w-full">
+                    <!-- Step 1 -->
                     <div
-                        onclick="fun(1)"
-                        id="step_1"
-                        class="step-indicator active w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold"
+                        [class.active]="currStep() == 1 || barTrackingMap[1]"
+                        [class.completed]="currStep() > 1 || barTrackingMap[1]"
+                        (click)="moveTo(1)"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200 relative z-10 cursor-pointer"
                     >
                         1
                     </div>
-                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div class="flex-1 h-2 bg-gray-200 rounded-full relative">
+                        <div
+                            class="h-2 rounded-full absolute transition-all duration-300"
+                            [ngClass]="currStep() > 2 ? 'bg-purple-800' : 'progress-bar'"
+                            [style.width.%]="(currStep() >= 2 || barTrackingMap[2]) ? 100 : 0"
+                        ></div>
+                    </div>
+
+                    <!-- Step 2 -->
                     <div
-                        onclick="fun(2)"
-                        id="step_2"
-                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                        [class.active]="currStep() == 2 || barTrackingMap[2]"
+                        [class.completed]="currStep() > 2 || barTrackingMap[2]"
+                        (click)="moveTo(2)"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200 relative z-10 cursor-pointer"
                     >
                         2
                     </div>
-                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div class="flex-1 h-2 bg-gray-200 rounded-full relative">
+                        <div
+                            class="h-2 rounded-full absolute transition-all duration-300"
+                            [ngClass]="currStep() > 3 ? 'bg-purple-800' : 'progress-bar'"
+                            [style.width.%]="(currStep() >= 3 || barTrackingMap[3]) ? 100 : 0"
+                        ></div>
+                    </div>
+
+                    <!-- Step 3 -->
                     <div
-                        onclick="fun(3)"
-                        id="step_3"
-                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                        [class.active]="currStep() == 3 || barTrackingMap[3]"
+                        [class.completed]="currStep() > 3 || barTrackingMap[3]"
+                        (click)="moveTo(3)"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200 relative z-10 cursor-pointer"
                     >
                         3
                     </div>
-                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div class="flex-1 h-2 bg-gray-200 rounded-full relative">
+                        <div
+                            class="h-2 rounded-full absolute transition-all duration-300"
+                            [ngClass]="currStep() > 4 ? 'bg-purple-800' : 'progress-bar'"
+                            [style.width.%]="(currStep() >= 4 || barTrackingMap[4]) ? 100 : 0"
+                        ></div>
+                    </div>
+
+                    <!-- Step 4 -->
                     <div
-                        onclick="fun(4)"
-                        id="step_4"
-                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                        [class.active]="currStep() == 4 || barTrackingMap[4]"
+                        [class.completed]="currStep() > 4 || barTrackingMap[4]"
+                        (click)="moveTo(4)"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200 relative z-10 cursor-pointer"
                     >
                         4
                     </div>
-                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div class="flex-1 h-2 bg-gray-200 rounded-full relative">
+                        <div
+                            class="h-2 rounded-full absolute transition-all duration-300"
+                            [ngClass]="currStep() > 5 ? 'bg-purple-800' : 'progress-bar'"
+                            [style.width.%]="(currStep() >= 5 || barTrackingMap[5]) ? 100 : 0"
+                        ></div>
+                    </div>
+
+                    <!-- Step 5 -->
                     <div
-                        onclick="fun(5)"
-                        id="step_5"
-                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                        [class.active]="currStep() == 5 || barTrackingMap[5]"
+                        [class.completed]="currStep() > 5 || barTrackingMap[5]"
+                        (click)="moveTo(5)"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200 relative z-10 cursor-pointer"
                     >
                         5
                     </div>
-                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div class="flex-1 h-2 bg-gray-200 rounded-full relative">
+                        <div
+                            class="h-2 rounded-full absolute transition-all duration-300"
+                            [ngClass]="currStep() > 6 ? 'bg-purple-800' : 'progress-bar'"
+                            [style.width.%]="(currStep() >= 6 || barTrackingMap[6]) ? 100 : 0"
+                        ></div>
+                    </div>
+
+                    <!-- Step 6 -->
                     <div
-                        onclick="fun(6)"
-                        id="step_6"
-                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                        [class.active]="currStep() == 6 || barTrackingMap[6]"
+                        [class.completed]="currStep() > 6 || barTrackingMap[6]"
+                        (click)="moveTo(6)"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200 relative z-10 cursor-pointer"
                     >
                         6
                     </div>
-                    <div class="w-8 md:w-16 h-1 bg-gray-200"></div>
+                    <div class="flex-1 h-2 bg-gray-200 rounded-full relative">
+                        <div
+                            class="h-2 rounded-full absolute transition-all duration-300"
+                            [ngClass]="currStep() > 7 ? 'bg-purple-800' : 'progress-bar'"
+                            [style.width.%]="(currStep() >= 7 || barTrackingMap[7]) ? 100 : 0"
+                        ></div>
+                    </div>
+
+                    <!-- Step 7 -->
                     <div
-                        onclick="fun(7)"
-                        id="step_7"
-                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200"
+                        [class.active]="currStep() == 7 || barTrackingMap[7]"
+                        [class.completed]="currStep() > 7 || barTrackingMap[7]"
+                        (click)="moveTo(7)"
+                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200 relative z-10 cursor-pointer"
                     >
                         7
                     </div>
                 </div>
             </div>
-            <div class="progress-bar h-2 rounded-full" style="width: 14.28%"></div>
         </div>
     </div>
 
     <main class="max-w-6xl mx-auto px-4 py-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
             <div class="lg:col-span-2">
-   
-                <!-- <app-basic-details
+                <app-basic-details
                     (next)="nextStep($event)"
                     (summary)="updateSummary($event)"
                     [class.hidden]="currStep() != 1"
@@ -133,34 +187,191 @@
                     [class.hidden]="currStep() != 3"
                 ></app-decoration-addons>
 
-                <app-date-checking [isActive]="currStep() == 4"
+                <app-date-checking
+                    [isActive]="currStep() == 4"
                     (next)="nextStep($event)"
                     (previous)="previousStep($event)"
                     [class.hidden]="currStep() != 4"
-                ></app-date-checking> -->
+                ></app-date-checking>
 
-                <app-ticket-price></app-ticket-price>
+                <app-ticket-price
+                    (next)="nextStep($event)"
+                    (previous)="previousStep($event)"
+                    [class.hidden]="currStep() != 5"
+                    [isActive]="currStep() == 5"
+                ></app-ticket-price>
+                @if (currStep() == 6) {
+                <app-booking-summary (change_step)="currStep.set($event)"></app-booking-summary>
+                } @if (currStep() == 7){
+                <app-payment
+                    [totalamount]="getTotalCost()"
+                    (previous)="previousStep($event)"
+                ></app-payment>
+                }
             </div>
             <div class="lg:col-span-1">
-                <div class="bg-white rounded-lg card-shadow p-6 sticky top-32">
+                <div
+                    class="bg-white rounded-lg card-shadow p-6 sticky top-32 max-h-[calc(100vh-8rem)] overflow-y-auto"
+                >
                     <h3 class="font-heading text-xl font-bold primary-text mb-4">
                         <i class="fas fa-receipt mr-2"></i>
                         Booking Summary
                     </h3>
 
                     <div id="liveSummary" class="space-y-4">
+                        @if (!hasAnyData()) {
                         <div class="text-center text-gray-500 py-8">
                             <i class="fas fa-clipboard-list text-4xl mb-4"></i>
                             <p>Your selections will appear here</p>
                         </div>
+                        } @else {
+                        <!-- Event Information -->
+                        @if (bookingData().step1) {
+                        <div class="border-b pb-3">
+                            <h4 class="font-semibold text-sm text-gray-700 mb-2">
+                                <i class="fas fa-calendar-alt mr-2"></i>Event Details
+                            </h4>
+                            <p class="text-sm text-gray-800 font-medium">
+                                {{ bookingData().step1.eventName }}
+                            </p>
+                            @if (bookingData().step4?.event_date) {
+                            <p class="text-sm text-gray-600 mt-1">
+                                {{ bookingData().step4.event_date | date : 'mediumDate' }}
+                            </p>
+                            }
+                            <p class="text-xs text-gray-600">
+                                {{ bookingData().step1.concertTime }}
+                            </p>
+                        </div>
+                        }
+
+                        <!-- Venue -->
+                        @if (bookingData().step2?.venue) {
+                        <div class="border-b pb-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-semibold text-sm text-gray-700">
+                                        <i class="fas fa-building mr-2"></i>Venue
+                                    </h4>
+                                    <p class="text-sm text-gray-800 mt-1">
+                                        {{ bookingData().step2.venue.name }}
+                                    </p>
+                                    <p class="text-xs text-gray-600">
+                                        {{ bookingData().step2.venue.location }}
+                                    </p>
+                                </div>
+                                <span class="text-sm font-semibold text-purple-600">
+                                    ₹{{ bookingData().step2.venue.price | number }}
+                                </span>
+                            </div>
+                        </div>
+                        }
+
+                        <!-- Band -->
+                        @if (bookingData().step2?.band) {
+                        <div class="border-b pb-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-semibold text-sm text-gray-700">
+                                        <i class="fas fa-music mr-2"></i>Band
+                                    </h4>
+                                    <p class="text-sm text-gray-800 mt-1">
+                                        {{ bookingData().step2.band.name }}
+                                    </p>
+                                    <p class="text-xs text-gray-600">
+                                        {{ bookingData().step2.band.genre }}
+                                    </p>
+                                </div>
+                                <span class="text-sm font-semibold text-purple-600">
+                                    ₹{{ bookingData().step2.band.price | number }}
+                                </span>
+                            </div>
+                        </div>
+                        }
+
+                        <!-- Decoration -->
+                        @if (bookingData().step3?.decoration) {
+                        <div class="border-b pb-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-semibold text-sm text-gray-700">
+                                        <i class="fas fa-palette mr-2"></i>Decoration
+                                    </h4>
+                                    <p class="text-sm text-gray-800 mt-1">
+                                        {{ bookingData().step3.decoration.name }}
+                                    </p>
+                                    <p class="text-xs text-gray-600">
+                                        {{ bookingData().step3.decoration.type }}
+                                    </p>
+                                </div>
+                                <span class="text-sm font-semibold text-purple-600">
+                                    ₹{{ bookingData().step3.decoration.price | number }}
+                                </span>
+                            </div>
+                        </div>
+                        }
+
+                        <!-- Food & Refreshments -->
+                        @if (bookingData().step3?.foodCost > 0) {
+                        <div class="border-b pb-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-semibold text-sm text-gray-700">
+                                        <i class="fas fa-utensils mr-2"></i>Food & Refreshments
+                                    </h4>
+                                    <p class="text-xs text-gray-600 mt-1">
+                                        {{ bookingData().step3.snackQuantity }} boxes
+                                    </p>
+                                </div>
+                                <span class="text-sm font-semibold text-purple-600">
+                                    ₹{{ bookingData().step3.foodCost | number }}
+                                </span>
+                            </div>
+                        </div>
+                        }
+
+                        <!-- Tickets -->
+                        @if (bookingData().step5?.provideTickets) {
+                        <div class="border-b pb-3">
+                            <h4 class="font-semibold text-sm text-gray-700 mb-2">
+                                <i class="fas fa-ticket-alt mr-2"></i>Ticketing
+                            </h4>
+                            <p class="text-xs text-gray-600 mb-2">
+                                Total: {{ bookingData().step5.totalTickets | number }} tickets
+                            </p>
+                            @if (bookingData().step5.ticketTypes?.length > 0) {
+                            <div class="space-y-1">
+                                @for (ticket of bookingData().step5.ticketTypes; track ticket.name)
+                                {
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-gray-700"
+                                        >{{ ticket.name }} ({{ ticket.maxCount | number }})</span
+                                    >
+                                    <span class="text-gray-600">₹{{ ticket.price }}</span>
+                                </div>
+                                }
+                            </div>
+                            } @if (bookingData().step5.ticketBookingDate) {
+                            <p class="text-xs text-gray-500 mt-2">
+                                Opens:
+                                {{ bookingData().step5.ticketBookingDate | date : 'shortDate' }}
+                            </p>
+                            }
+                        </div>
+                        } }
                     </div>
 
-                    <div id="totalCost" class="border-t pt-4 mt-4 hidden">
+                    <!-- Total Cost -->
+                    @if (getTotalCost() > 0) {
+                    <div id="totalCost" class="border-t pt-4 mt-4">
                         <div class="flex justify-between items-center">
-                            <span class="font-semibold">Total Cost:</span>
-                            <span id="totalAmount" class="text-xl font-bold primary-text">₹0</span>
+                            <span class="font-semibold text-gray-800">Total Cost:</span>
+                            <span class="text-2xl font-bold primary-text"
+                                >₹{{ getTotalCost() | number }}</span
+                            >
                         </div>
                     </div>
+                    }
                 </div>
             </div>
         </div>

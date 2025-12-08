@@ -8,10 +8,11 @@ import {
     Validators,
 } from '@angular/forms';
 import { ConcertCreationService } from '../../concert-creatation.services';
+import { MakeRedDirective } from "../../../../shared/directives/makered.directives";
 
 @Component({
     selector: 'app-basic-details',
-    imports: [FormsModule, ReactiveFormsModule, CommonModule],
+    imports: [FormsModule, ReactiveFormsModule, CommonModule, MakeRedDirective],
     templateUrl: './basic-details.html',
     styleUrl: './basic-details.css',
 })
@@ -30,7 +31,7 @@ export class BasicDetails {
 
     ngOnInit() {
         this.nextButtonClicked = false;
-        
+
         this.step1Form = this.fb.group({
             fullName: [
                 '',
@@ -44,13 +45,19 @@ export class BasicDetails {
                     Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
                 ],
             ],
-            mobile: ['', [Validators.required, Validators.pattern(/^\d{7,15}$/)]],
-            eventName: ['', Validators.required],
-            eventDescription: [
+            mobile: [
                 '',
-                [Validators.required, Validators.minLength(10)],
+                [
+                    Validators.required,
+                    Validators.minLength(7),
+                    Validators.maxLength(15),
+                    Validators.pattern(/^[1-9]\d*$/),
+                ],
             ],
-            eventBanner: [null, [Validators.required]],
+
+            eventName: ['', Validators.required],
+            eventDescription: ['', [Validators.required, Validators.minLength(10)]],
+            eventBanner: [null],
         });
     }
 
@@ -68,6 +75,8 @@ export class BasicDetails {
 
     nextStep() {
         this.nextButtonClicked = true;
+  
+        
         if (this.step1Form.invalid) {
             this.step1Form.markAllAsTouched();
             alert('Please fill all required fields');
@@ -85,6 +94,11 @@ export class BasicDetails {
         this.next.emit(1);
 
         console.log('Step 1 Data:', data);
-        console.log("Updated data:", this.concertCreation.get(1));
+        console.log('Updated data:', this.concertCreation.get(1));
+    }
+
+    removeSpaces(event: any) {
+        const value = event.target.value.replace(/\s/g, '');
+        this.step1Form.get('mobile')?.setValue(value, { emitEvent: false });
     }
 }

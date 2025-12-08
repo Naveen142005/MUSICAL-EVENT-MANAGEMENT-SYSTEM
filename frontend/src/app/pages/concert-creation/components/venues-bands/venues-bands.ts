@@ -3,10 +3,12 @@ import { ConcertCreationService } from '../../concert-creatation.services';
 import { Venue, Band } from '../../models/venues-bands.interfaces';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { VenueComponent } from './components/venue/venue';
+import { BandComponent } from './components/band/band';
 
 @Component({
     selector: 'app-venues-bands',
-    imports: [CommonModule, FormsModule],
+    imports: [CommonModule, FormsModule, VenueComponent, BandComponent],
     templateUrl: './venues-bands.html',
     styleUrl: './venues-bands.css',
 })
@@ -48,7 +50,7 @@ export class VenuesBands {
 
     async ngOnInit() {
         // Load Venues
-        this.venues = await this.concertCreationService.getVenues();
+        // this.venues =  this.concertCreationService.getVenues();
         this.venues = this.venues.map((venue) => ({
             ...venue,
             rating: this.generateRandomRating(),
@@ -227,12 +229,10 @@ export class VenuesBands {
             venue: this.selectedVenue,
             band: this.selectedBand,
         };
-        
 
         this.concertCreationService.update(2, data);
         this.summary.emit({ step: 2, data: data });
         console.log('Step 2 completed:', data);
         this.next.emit(1);
-        
     }
 }

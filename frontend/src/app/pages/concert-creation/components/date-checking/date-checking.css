@@ -1,7 +1,7 @@
-/* decoration-addons.css */
+
 @import '../venues-bands/venues-bands.css';
 
-/* Specialty tags */
+
 .bg-purple-100 {
     background-color: #f3e8ff;
 }
@@ -10,7 +10,6 @@
     color: #6b21a8;
 }   
 
-/* Food section */
 input[type="number"]:focus {
     outline: none;
     border-color: #9333ea;

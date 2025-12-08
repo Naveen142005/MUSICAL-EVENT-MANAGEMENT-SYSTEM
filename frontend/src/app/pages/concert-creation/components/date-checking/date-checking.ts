@@ -176,7 +176,7 @@ export class DateChecking {
 
         const next = new Date(this.currYear, this.currMonth + 1, 1);
 
-        // If going beyond max → block it
+
         if (next > max) {
             this.nxtDisabled = true;
             return;

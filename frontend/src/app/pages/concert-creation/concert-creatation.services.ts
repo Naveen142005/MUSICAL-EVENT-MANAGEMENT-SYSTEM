@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Band, Venue } from './models/venues-bands.interfaces';
 import { firstValueFrom } from 'rxjs';
@@ -7,7 +7,7 @@ import { Decoration, Snack } from './models/decortions.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ConcertCreationService {
-    data: any = {
+    data: any = signal({
         step1: null,
         step2: null,
         step3: null,
@@ -15,25 +15,28 @@ export class ConcertCreationService {
         step5: null,
         step6: null,
         step7: null,
-    };
+    });
 
     update(step: number, value: any) {
-        this.data[`step${step}`] = value;
+        this.data.update((current: any) => ({
+            ...current,
+            [`step${step}`]: value,
+        }));
     }
 
     get(step: number) {
-        return this.data[`step${step}`];
+        return this.data()[`step${step}`];
     }
 
     getAll() {
-        return this.data;
+        return this.data();
     }
 
     http = inject(HttpClient);
     baseUrl = environment.apiBase;
 
     getVenues() {
-        return firstValueFrom(this.http.get<Venue[]>(`${this.baseUrl}/facilities/get_venues`));
+        return this.http.get<Venue[]>(`${this.baseUrl}/facilities/get_venues`);
     }
 
     getBands() {
@@ -56,14 +59,9 @@ export class ConcertCreationService {
 
         let params = new HttpParams().set('start_date', startDate);
 
-
-
         if (this.data['step1']?.concertTime) {
             params = params.set('slot', this.data['step1'].concertTime);
         }
-
-
-      
 
         let values = await firstValueFrom(
             this.http.get<any>(`${this.baseUrl}/calender/booked-events`, { params })
@@ -83,9 +81,6 @@ export class ConcertCreationService {
             if (event.decoration_id) map[date].decoration_ids.push(event.decoration_id);
         }
 
-        console.log(map);
-        
-
-        return map
+        return map;
     }
 }

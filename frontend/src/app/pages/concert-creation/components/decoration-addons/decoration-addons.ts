@@ -1,8 +1,8 @@
 import { Component, inject, Output, EventEmitter, signal, computed } from '@angular/core';
-import { ConcertCreationService } from '../concert-creatation.services';
+import { ConcertCreationService } from '../../concert-creatation.services';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Decoration, Snack } from '../models/decortions.interface';
+import { Decoration, Snack } from '../../models/decortions.interface';
 
 @Component({
     selector: 'app-decoration-addons',

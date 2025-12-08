@@ -1,13 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, Input } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Input,
+    signal,
+    inject,
+    EventEmitter,
+    Output,
+    input,
+    effect,
+} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConcertCreationService } from '../../concert-creatation.services';
 
 interface TicketTypeView {
     name: string;
     maxCount: number;
     price: number;
-
-    // error messages per row
     nameError?: string;
     countError?: string;
     priceError?: string;
@@ -20,44 +29,48 @@ interface TicketTypeView {
     styleUrl: './ticket-price.css',
 })
 export class TicketingComponent implements OnInit {
-    @Input() eventDate?: string; // ISO string from previous step (optional)
+    @Output() next = new EventEmitter<number>();
+    @Output() previous = new EventEmitter<number>();
+    @Input() eventDate?: string;
 
+    concertCreationService = inject(ConcertCreationService);
     provideTickets = false;
-
     totalTickets = 0;
     totalTicketsError = '';
-
     ticketTypesCount = 0;
     typesCountError = '';
-
     ticketTypes: TicketTypeView[] = [];
-
     ticketBookingDate = '';
     minBookingDate = '';
     bookingError = '';
-
+    maxTicketCount: number = 0;
     assignedError = '';
 
+    isActive = input<boolean>(false);
+
+    constructor() {
+        effect(() => {
+            const isActive = this.isActive();
+            if (isActive) {
+                this.setMaxTicketCount();
+            }
+        });
+    }
     ngOnInit(): void {
         this.setMinBookingDate();
     }
-
-    isTicketTypeValid(t: TicketTypeView): any {
-        return (
-            t.name &&
-            t.name.trim().length > 0 &&
-            !t.nameError &&
-            t.maxCount > 0 &&
-            !t.countError &&
-            t.price > 0 &&
-            !t.priceError
-        );
+    private setMaxTicketCount() {
+        const venueData = this.concertCreationService.get(2);
+        console.log(venueData.venue + "-------");
+        
+        if (venueData?.venue?.capacity) {
+            this.maxTicketCount = venueData.venue.capacity;
+            this.totalTickets = this.maxTicketCount;
+            this.totalTicketsError = '';
+            console.log('Max Ticket Count:', this.maxTicketCount);
+        }
+        else this.maxTicketCount = 0
     }
-
-    isTicketTypeInvalid(t: TicketTypeView): boolean {
-        return !!(t.nameError || t.countError || t.priceError);
-    }
-
     private setMinBookingDate(): void {
         const now = new Date();
         now.setMinutes(now.getMinutes() + 1);
@@ -73,8 +86,14 @@ export class TicketingComponent implements OnInit {
     onTotalTicketsChange(): void {
         this.totalTicketsError = '';
 
-        if (!this.totalTickets || this.totalTickets <= 0) {
-            this.totalTicketsError = 'Total tickets must be at least 1.';
+        if (this.maxTicketCount > 0 && this.totalTickets !== this.maxTicketCount) {
+            this.totalTicketsError = `Total tickets must match venue capacity (${this.maxTicketCount}). Cannot be changed.`;
+            this.totalTickets = this.maxTicketCount;
+            return;
+        }
+
+        if (!this.totalTickets || this.totalTickets < 5) {
+            this.totalTicketsError = 'Total tickets must be at least 5.';
             return;
         }
 
@@ -83,7 +102,6 @@ export class TicketingComponent implements OnInit {
             return;
         }
 
-        // Re-check assigned total
         this.validateAssignedTotal();
     }
 
@@ -111,16 +129,10 @@ export class TicketingComponent implements OnInit {
         const target = this.ticketTypesCount;
 
         if (target > current) {
-            // add new rows
             for (let i = current; i < target; i++) {
-                this.ticketTypes.push({
-                    name: '',
-                    maxCount: 0,
-                    price: 0,
-                });
+                this.ticketTypes.push({ name: '', maxCount: 0, price: 0 });
             }
         } else if (target < current) {
-            // remove extra rows
             this.ticketTypes = this.ticketTypes.slice(0, target);
         }
 
@@ -128,17 +140,14 @@ export class TicketingComponent implements OnInit {
     }
 
     splitEqually(): void {
-        if (!this.totalTickets || this.ticketTypes.length === 0) {
-            return;
-        }
+        if (!this.totalTickets || this.ticketTypes.length === 0) return;
 
         const n = this.ticketTypes.length;
         const base = Math.floor(this.totalTickets / n);
         let remainder = this.totalTickets % n;
 
         this.ticketTypes.forEach((t) => {
-            const extra = remainder > 0 ? 1 : 0;
-            t.maxCount = base + extra;
+            t.maxCount = base + (remainder > 0 ? 1 : 0);
             remainder--;
             t.countError = '';
         });
@@ -172,9 +181,7 @@ export class TicketingComponent implements OnInit {
     validateAssignedTotal(): void {
         this.assignedError = '';
 
-        if (!this.totalTickets || this.ticketTypes.length === 0) {
-            return;
-        }
+        if (!this.totalTickets || this.ticketTypes.length === 0) return;
 
         const assigned = this.getAssignedTotal();
 
@@ -192,9 +199,7 @@ export class TicketingComponent implements OnInit {
     onBookingDateChange(): void {
         this.bookingError = '';
 
-        if (!this.ticketBookingDate) {
-            return;
-        }
+        if (!this.ticketBookingDate) return;
 
         const selected = new Date(this.ticketBookingDate);
         const now = new Date();
@@ -212,8 +217,32 @@ export class TicketingComponent implements OnInit {
         }
     }
 
+    isTicketTypeValid(t: TicketTypeView): boolean {
+        return !!(
+            t.name?.trim() &&
+            !t.nameError &&
+            t.maxCount > 0 &&
+            !t.countError &&
+            t.price > 0 &&
+            !t.priceError
+        );
+    }
+
+    isTicketTypeInvalid(t: TicketTypeView): boolean {
+        return !!(t.nameError || t.countError || t.priceError);
+    }
+
+    areAllTicketTypesValid(): boolean {
+        if (this.ticketTypes.length === 0) return false;
+
+        return (
+            this.ticketTypes.every((t) => this.isTicketTypeValid(t)) &&
+            this.getAssignedTotal() === this.totalTickets &&
+            !this.assignedError
+        );
+    }
+
     onNextClick(): void {
-        // Clear all previous errors
         this.totalTicketsError = '';
         this.typesCountError = '';
         this.assignedError = '';
@@ -225,12 +254,8 @@ export class TicketingComponent implements OnInit {
             t.priceError = '';
         });
 
-        // Run full validation
-        if (!this.validate()) {
-            return;
-        }
+        if (!this.validate()) return;
 
-        // Valid - prepare payload
         const payload = {
             provideTickets: this.provideTickets,
             totalTickets: this.totalTickets,
@@ -242,28 +267,20 @@ export class TicketingComponent implements OnInit {
             ticketBookingDate: this.ticketBookingDate,
         };
 
-        console.log('✅ Form valid. Payload:', payload);
-        // Move to next step here
+        this.concertCreationService.update(5, payload);
+        this.next.emit(1);
     }
 
     private validate(): boolean {
         let isValid = true;
 
-        // If not providing tickets, skip
-        if (!this.provideTickets) {
-            return true;
-        }
+        if (!this.provideTickets) return true;
 
-        // Total tickets
-        if (!this.totalTickets || this.totalTickets <= 0) {
-            this.totalTicketsError = 'Total tickets is required and must be at least 1.';
-            isValid = false;
-        } else if (this.totalTickets > 100000) {
-            this.totalTicketsError = 'Total tickets cannot exceed 100,000.';
+        if (!this.totalTickets || this.totalTickets < 5) {
+            this.totalTicketsError = 'Total tickets is required and must be at least 5.';
             isValid = false;
         }
 
-        // Ticket types count
         if (!this.ticketTypesCount || this.ticketTypesCount < 1) {
             this.typesCountError = 'Number of ticket types is required.';
             isValid = false;
@@ -272,14 +289,12 @@ export class TicketingComponent implements OnInit {
             isValid = false;
         }
 
-        // Each ticket type
         if (this.ticketTypes.length === 0) {
             this.typesCountError = 'Please enter ticket types.';
             isValid = false;
         }
 
         this.ticketTypes.forEach((t, i) => {
-            // Name
             if (!t.name || !t.name.trim()) {
                 t.nameError = 'Type name is required.';
                 isValid = false;
@@ -288,16 +303,14 @@ export class TicketingComponent implements OnInit {
                 isValid = false;
             }
 
-            // Check duplicate names
-            const duplicates = this.ticketTypes.filter(
+            const duplicateNames = this.ticketTypes.filter(
                 (x) => x.name.trim().toLowerCase() === t.name.trim().toLowerCase()
             );
-            if (duplicates.length > 1 && !t.nameError) {
+            if (duplicateNames.length > 1 && !t.nameError) {
                 t.nameError = 'Duplicate type name.';
                 isValid = false;
             }
 
-            // Max count
             if (t.maxCount === null || t.maxCount === undefined) {
                 t.countError = 'Max tickets is required.';
                 isValid = false;
@@ -305,11 +318,10 @@ export class TicketingComponent implements OnInit {
                 t.countError = 'Cannot be negative.';
                 isValid = false;
             } else if (t.maxCount === 0) {
-                t.countError = 'Must be at least 1.';
+                t.countError = 'Ticket count cannnot be negative.';
                 isValid = false;
             }
 
-            // Price
             if (!t.price || t.price <= 0) {
                 t.priceError = 'Price is required and must be greater than 0.';
                 isValid = false;
@@ -317,22 +329,23 @@ export class TicketingComponent implements OnInit {
                 t.priceError = 'Price cannot exceed ₹10,00,000.';
                 isValid = false;
             }
+
+            const duplicatePrices = this.ticketTypes.filter((x) => x.price === t.price);
+            if (duplicatePrices.length > 1 && !t.priceError && t.price > 0) {
+                t.priceError = 'Duplicate price. Each ticket type must have unique price.';
+                isValid = false;
+            }
         });
 
-        // Assigned total must match
         const assigned = this.getAssignedTotal();
         if (assigned !== this.totalTickets) {
-            if (assigned > this.totalTickets) {
-                this.assignedError =
-                    'Assigned tickets exceed total tickets. Use "Split equally" to fix.';
-            } else {
-                this.assignedError =
-                    'Assigned tickets are less than total tickets. Use "Split equally" to fix.';
-            }
+            this.assignedError =
+                assigned > this.totalTickets
+                    ? 'Assigned tickets exceed total tickets.'
+                    : 'Assigned tickets are less than total tickets.';
             isValid = false;
         }
 
-        // Booking date
         if (!this.ticketBookingDate) {
             this.bookingError = 'Ticket booking date is required.';
             isValid = false;
@@ -358,8 +371,7 @@ export class TicketingComponent implements OnInit {
     }
 
     goPrevious(): void {
-        console.log('Go to previous step');
-        // Wire to your stepper logic
+        this.previous.emit(-1);
     }
 
     private resetAll(): void {

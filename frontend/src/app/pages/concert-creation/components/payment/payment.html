@@ -1,0 +1,220 @@
+<div id="step7" class="step-content">
+    <div class="bg-white rounded-lg card-shadow p-6 md:p-8">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold primary-text mb-6">
+            <i class="fas fa-credit-card mr-3"></i>
+            Payment Details
+        </h2>
+
+        <form [formGroup]="paymentForm">
+            <div class="space-y-6">
+                <!-- Payment Amount -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Payment Amount</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <label
+                            (click)="changePaymentAmount('full')"
+                            [class.border-purple-500]="paymentAmount === 'full'"
+                            class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-purple-300 transition-all"
+                        >
+                            <input
+                                type="radio"
+                                formControlName="paymentAmount"
+                                value="full"
+                                class="sr-only"
+                            />
+                            <div
+                                class="radio-custom w-5 h-5 border-2 border-gray-300 rounded-full mr-3 flex items-center justify-center"
+                            >
+                                <div
+                                    class="w-2 h-2 bg-purple-600 rounded-full"
+                                    [class.hidden]="paymentAmount != 'full'"
+                                    [class.block]="paymentAmount === 'full'"
+                                ></div>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Full Amount</div>
+                                <div class="text-sm text-gray-500">₹{{ totalamount | number }}</div>
+                            </div>
+                        </label>
+
+                        <label
+                            (click)="changePaymentAmount('deposit')"
+                            [class.border-purple-500]="paymentAmount === 'deposit'"
+                            class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-purple-300 transition-all"
+                        >
+                            <input
+                                type="radio"
+                                formControlName="paymentAmount"
+                                value="deposit"
+                                class="sr-only"
+                            />
+                            <div
+                                class="radio-custom w-5 h-5 border-2 border-gray-300 rounded-full mr-3 flex items-center justify-center"
+                            >
+                                <div
+                                    class="w-2 h-2 bg-purple-600 rounded-full"
+                                    [class.hidden]="paymentAmount != 'deposit'"
+                                    [class.block]="paymentAmount === 'deposit'"
+                                ></div>
+                            </div>
+                            <div>
+                                <div class="font-semibold">50% Deposit</div>
+                                <div class="text-sm text-gray-500">
+                                    ₹{{ totalamount / 2 | number }}
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Payment Method</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <label
+                            [class.border-purple-500]="
+                                paymentForm.get('paymentMethod')?.value === 'upi'
+                            "
+                            [class.bg-purple-50]="paymentForm.get('paymentMethod')?.value === 'upi'"
+                            class="flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-purple-300 hover:bg-purple-50 transition-all"
+                        >
+                            <input
+                                type="radio"
+                                formControlName="paymentMethod"
+                                value="upi"
+                                class="sr-only"
+                            />
+                            <i class="fas fa-mobile-alt text-2xl text-purple-600 mb-2"></i>
+                            <div class="font-semibold">UPI</div>
+                            <div
+                                class="w-2 h-2 bg-purple-600 rounded-full mt-2"
+                                [class.hidden]="paymentForm.get('paymentMethod')?.value !== 'upi'"
+                            ></div>
+                        </label>
+
+                        <label
+                            [class.border-purple-500]="
+                                paymentForm.get('paymentMethod')?.value === 'card'
+                            "
+                            [class.bg-purple-50]="
+                                paymentForm.get('paymentMethod')?.value === 'card'
+                            "
+                            class="flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-purple-300 hover:bg-purple-50 transition-all"
+                        >
+                            <input
+                                type="radio"
+                                formControlName="paymentMethod"
+                                value="card"
+                                class="sr-only"
+                            />
+                            <i class="fas fa-credit-card text-2xl text-purple-600 mb-2"></i>
+                            <div class="font-semibold">Card</div>
+                            <div
+                                class="w-2 h-2 bg-purple-600 rounded-full mt-2"
+                                [class.hidden]="paymentForm.get('paymentMethod')?.value !== 'card'"
+                            ></div>
+                        </label>
+
+                        <label
+                            [class.border-purple-500]="
+                                paymentForm.get('paymentMethod')?.value === 'netbanking'
+                            "
+                            [class.bg-purple-50]="
+                                paymentForm.get('paymentMethod')?.value === 'netbanking'
+                            "
+                            class="flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-purple-300 hover:bg-purple-50 transition-all"
+                        >
+                            <input
+                                type="radio"
+                                formControlName="paymentMethod"
+                                value="netbanking"
+                                class="sr-only"
+                            />
+                            <i class="fas fa-university text-2xl text-purple-600 mb-2"></i>
+                            <div class="font-semibold">Net Banking</div>
+                            <div
+                                class="w-2 h-2 bg-purple-600 rounded-full mt-2"
+                                [class.hidden]="
+                                    paymentForm.get('paymentMethod')?.value !== 'netbanking'
+                                "
+                            ></div>
+                        </label>
+                    </div>
+
+                    @if (paymentMethodError) {
+                    <div class="error-message text-red-500 text-sm mt-2">
+                        <i class="fas fa-exclamation-circle mr-1"></i>
+                        Please select a payment method
+                    </div>
+                    }
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="border-t pt-4">
+                    <div class="flex items-start space-x-3">
+                        <input
+                            type="checkbox"
+                            id="acceptTerms"
+                            formControlName="acceptTerms"
+                            class="mt-1 w-5 h-5 text-purple-600 border-2 border-gray-300 rounded focus:ring-purple-500 focus:ring-2 cursor-pointer"
+                        />
+                        <label
+                            for="acceptTerms"
+                            class="text-sm text-gray-700 cursor-pointer leading-relaxed"
+                        >
+                            I agree to the
+                            <a
+                                href="/src/Organizer/tmc.html"
+                                target="_blank"
+                                class="text-purple-600 hover:text-purple-800 font-semibold underline"
+                            >
+                                Terms & Conditions
+                            </a>
+                            and
+                            <a
+                                href="/src/Organizer/tmc.html"
+                                target="_blank"
+                                class="text-purple-600 hover:text-purple-800 font-semibold underline"
+                            >
+                                Privacy Policy
+                            </a>
+                        </label>
+                    </div>
+
+                    @if (showTermsError || (paymentForm.get('acceptTerms')?.invalid &&
+                    paymentForm.get('acceptTerms')?.touched)) {
+                    <div class="text-red-500 text-sm mt-2">
+                        <i class="fas fa-exclamation-circle mr-1"></i>
+                        Please accept the terms and conditions to proceed.
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <div class="flex justify-between mt-8">
+                <button
+                    type="button"
+                    (click)="onPrevious()"
+                    class="bg-gray-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-all"
+                >
+                    <i class="fas fa-arrow-left mr-2"></i>Previous
+                </button>
+
+                <button
+                    type="button"
+                    (click)="onCompleteBooking()"
+                    [disabled]="isProcessing"
+                    class="flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    @if (isProcessing) {
+                    <i class="fas fa-spinner fa-spin mr-2"></i>
+                    <span>Processing...</span>
+                    } @else {
+                    <i class="fas fa-check mr-2"></i>
+                    <span>Complete Booking</span>
+                    }
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

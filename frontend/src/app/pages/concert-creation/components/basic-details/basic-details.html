@@ -8,7 +8,7 @@
         <form id="basicDetailsForm" class="space-y-6" [formGroup]="step1Form">
             <div>
                 <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-2">
-                    <i class="fas fa-user mr-2"></i>Full Name *
+                    <i class="fas fa-user mr-2"></i>Full Name <span makered>*</span>
                 </label>
                 <input
                     formControlName="fullName"
@@ -33,7 +33,7 @@
 
             <div>
                 <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
-                    <i class="fas fa-envelope mr-2"></i>Email Address *
+                    <i class="fas fa-envelope mr-2"></i>Email Address <span makered>*</span>
                 </label>
                 <input
                     formControlName="email"
@@ -56,23 +56,28 @@
 
             <div>
                 <label for="mobile" class="block text-sm font-semibold text-gray-700 mb-2">
-                    <i class="fas fa-phone mr-2"></i>Mobile Number *
+                    <i class="fas fa-phone mr-2"></i>Mobile Number <span makered>*</span>
                 </label>
                 <input
                     formControlName="mobile"
                     type="tel"
                     id="mobile"
                     name="mobile"
+                    (input)="removeSpaces($event)"
                     required
                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                     placeholder="Enter 7-15 digits"
                 />
-                @if (step1Form.get('mobile')?.touched && step1Form.get('mobile')?.errors) {
+                @if (step1Form.get('mobile')?.touched && step1Form.get('mobile')?.invalid) {
                 <div class="error-message text-red-500 text-sm mt-1">
-                    @if (step1Form.get('mobile')?.errors?.['required']) {
+                    @if (step1Form.get('mobile')?.hasError('required')) {
                     <p>Mobile number is required.</p>
-                    } @if (step1Form.get('mobile')?.errors?.['pattern']) {
-                    <p>Enter a valid mobile number (7–15 digits).</p>
+                    } @else if (step1Form.get('mobile')?.hasError('pattern')) {
+                    <p>Mobile number cannot start with 0.</p>
+                    } @else if (step1Form.get('mobile')?.hasError('minlength')) {
+                    <p>Mobile number must be at least 7 digits.</p>
+                    } @else if (step1Form.get('mobile')?.hasError('maxlength')) {
+                    <p>Mobile number cannot exceed 15 digits.</p>
                     }
                 </div>
                 }
@@ -80,7 +85,7 @@
 
             <div>
                 <label for="eventName" class="block text-sm font-semibold text-gray-700 mb-2">
-                    <i class="fas fa-tag mr-2"></i>Event Name
+                    <i class="fas fa-tag mr-2"></i>Event Name <span makered>*</span>
                 </label>
                 <input
                     formControlName="eventName"
@@ -96,7 +101,6 @@
                     @if (step1Form.get('eventName')?.errors?.['required']) {
                     <p>Event name is required.</p>
                     }
-                    
                 </div>
                 }
             </div>
@@ -106,7 +110,7 @@
                     for="eventDescription"
                     class="block text-sm font-semibold text-gray-700 mb-2"
                 >
-                    <i class="fas fa-align-left mr-2"></i>Event Description
+                    <i class="fas fa-align-left mr-2"></i>Event Description <span makered>*</span>
                 </label>
                 <textarea
                     formControlName="eventDescription"
@@ -146,9 +150,8 @@
                 @if (step1Form.get('eventBanner')?.touched && step1Form.get('eventBanner')?.errors)
                 {
                 <div class="error-message text-red-500 text-sm mt-1">
-                    @if (step1Form.get('eventBanner')?.errors?.['required']) {
-                    <p>Event banner is required.</p>
-                    } @if (step1Form.get('eventBanner')?.errors?.['maxSize']) {
+                   
+                     @if (step1Form.get('eventBanner')?.errors?.['maxSize']) {
                     <p>File too large (max 5MB allowed).</p>
                     }
                 </div>
@@ -157,7 +160,7 @@
 
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-4">
-                    <i class="fas fa-clock mr-2"></i>Concert Time *
+                    <i class="fas fa-clock mr-2"></i>Concert Time <span makered>*</span>
                 </label>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <label

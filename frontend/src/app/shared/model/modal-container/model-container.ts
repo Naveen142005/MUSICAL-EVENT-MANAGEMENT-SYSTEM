@@ -15,7 +15,7 @@ import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 export class ModalContainerComponent {
 
   @ViewChild('modalHost', { read: ViewContainerRef, static: true })
-  modalHost!: ViewContainerRef;
+  modalHost !: ViewContainerRef;
 
   closeFn: any;
 

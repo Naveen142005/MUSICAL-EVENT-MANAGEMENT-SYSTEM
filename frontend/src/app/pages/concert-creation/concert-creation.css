@@ -61,3 +61,24 @@
         transform: translateY(0);
     }
 }
+
+/* Current step - Vibrant dark purple with glow */
+.step-indicator.active {
+    background: linear-gradient(135deg, #6b21a8 0%, #7e22ce 100%);
+    color: white;
+    box-shadow: 0 0 0 4px rgba(107, 33, 168, 0.2), 0 4px 12px rgba(107, 33, 168, 0.4);
+    transform: scale(1.05);
+}
+
+/* Completed steps - Deep purple */
+.step-indicator.completed {
+    background: #6b21a8;
+    color: white;
+}
+
+/* Current progress bar - Vibrant purple gradient */
+.progress-bar {
+    background: linear-gradient(90deg, #7e22ce 0%, #a855f7 100%);
+    box-shadow: 0 2px 8px rgba(126, 34, 206, 0.3);
+}
+
